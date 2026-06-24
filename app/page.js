@@ -7,6 +7,11 @@ import GATDHero from "@/components/Home/HeroSection";
 import KeyFeatures from "@/components/Home/KeyFeatures";
 import WhoWeAre from "@/components/Home/WhoWeAre";
 import Navbar from "@/components/Navbar";
+import Testimonials from "@/components/Home/Testimonials";
+import LatestUpdates from "@/components/Home/LatestUpdates";
+import WhatWillLearningDo from "@/components/Home/WhatWillLearningDo";
+import CommitmentBanner from "@/components/Home/CommitmentBanner";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -20,8 +25,12 @@ export default function Home() {
        <OurSolutions />
        <OurServices />
        <MissionStatement />
+       <Testimonials />
+       <LatestUpdates />
+       <WhatWillLearningDo />
+       <CommitmentBanner />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

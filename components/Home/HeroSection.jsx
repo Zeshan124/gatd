@@ -14,7 +14,7 @@ export default function GATDHero() {
 
   return (
     <section className="bg-white pt-10 sm:pt-14 md:pt-16 pb-0 overflow-hidden">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* ── Top Row: Left content + Right text/buttons ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-10 sm:mb-12">

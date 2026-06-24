@@ -73,8 +73,8 @@ export default function KeyFeatures() {
   };
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 overflow-hidden">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section className="bg-[#F8F9FA] py-12 sm:py-16 md:py-20 overflow-hidden">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">

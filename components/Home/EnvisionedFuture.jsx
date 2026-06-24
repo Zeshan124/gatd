@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function EnvisionedFuture() {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Outer Card — full background image */}
         <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200" style={{ minHeight: "340px" }}>

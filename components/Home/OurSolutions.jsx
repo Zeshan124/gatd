@@ -83,7 +83,7 @@ export default function OurSolutions() {
 
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Heading */}
         <h2 className="text-4xl sm:text-5xl font-bold text-[#414143] mb-8">

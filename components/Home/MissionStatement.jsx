@@ -19,7 +19,7 @@ export default function MissionStatement() {
       {/* Red overlay */}
       <div className="absolute inset-0 bg-[#D52029]/85" />
 
-      <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
 
           {/* Left — Image */}
@@ -36,7 +36,7 @@ export default function MissionStatement() {
           {/* Right — Content */}
           <div>
             {/* Badge */}
-            <span className="inline-block px-5 py-2 text-sm font-semibold text-slate-800 bg-white rounded-lg mb-6 shadow-sm">
+            <span className="inline-block px-5 py-2 text-sm font-semibold text-[#414143] bg-white rounded-lg mb-6 shadow-sm">
               Commitment
             </span>
 
@@ -57,12 +57,12 @@ export default function MissionStatement() {
             </p>
 
             {/* CTA */}
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-slate-100 text-slate-900 text-sm font-bold rounded-md transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            >
-              Explore More
-            </Link>
+           <Link
+  href="/about"
+  className="inline-flex items-center justify-center px-6 py-3 hover:bg-slate-100 text-[#FFFFFF] hover:text-[#414143] text-sm font-bold rounded-md border border-[#FFFFFF] transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+>
+  Explore More
+</Link>
           </div>
 
         </div>

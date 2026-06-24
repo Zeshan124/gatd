@@ -74,8 +74,8 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="bg-[#F8F8F8] py-12 sm:py-16 md:py-20">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section className="bg-[#F8F9FA] py-12 sm:py-16 md:py-20">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Top Row — heading + description + CTA */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-10">
