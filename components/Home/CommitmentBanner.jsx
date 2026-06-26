@@ -9,7 +9,7 @@ export default function CommitmentBanner() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
 
           {/* Left — Eyebrow + Heading */}
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <p className="text-sm text-[#414143] font-medium mb-2">
               Global association for training and development
             </p>
