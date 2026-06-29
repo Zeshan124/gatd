@@ -90,14 +90,24 @@ export default function OurSolutions() {
           Our Solutions
         </h2>
 
+        {/* Heading row with View All on mobile */}
+        <div className="flex items-center justify-between gap-4 mb-6 lg:hidden">
+          <Link
+            href="/solutions"
+            className="inline-flex items-center justify-center px-5 py-2.5 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-md transition-all duration-200 whitespace-nowrap ml-auto"
+          >
+            View All
+          </Link>
+        </div>
+
         {/* Tab Bar */}
-        <div className="flex items-start gap-0 border-b border-slate-200 mb-10 overflow-x-auto scrollbar-hide">
+        <div className="flex items-end gap-0 border-b border-slate-200 mb-10 overflow-x-auto scrollbar-hide">
           <div className="flex items-start gap-0 flex-1 min-w-0">
             {solutions.map((s) => (
               <button
                 key={s.id}
                 onClick={() => setActiveId(s.id)}
-                className={`relative flex-shrink-0 px-4 py-3 text-sm text-left leading-snug transition-colors duration-200 max-w-[140px] ${
+                className={`relative shrink-0 px-4 py-3 text-sm text-left leading-snug transition-colors duration-200 max-w-[140px] ${
                   activeId === s.id
                     ? "font-bold text-[#414143]"
                     : "font-medium text-slate-500 hover:text-slate-800"
@@ -111,8 +121,8 @@ export default function OurSolutions() {
             ))}
           </div>
 
-          {/* View All */}
-          <div className="flex-shrink-0 pb-2 pl-4">
+          {/* View All — desktop only */}
+          <div className="hidden lg:block shrink-0 pb-2 pl-4">
             <Link
               href="/solutions"
               className="inline-flex items-center justify-center px-5 py-2.5 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-md transition-all duration-200 whitespace-nowrap"

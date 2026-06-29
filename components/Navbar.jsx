@@ -25,6 +25,7 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   return (
     <header className="w-full bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
@@ -32,7 +33,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+          <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/images/home/GATD-Logo 1.svg"
               alt="GATD Logo"
@@ -43,8 +44,8 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-4">
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) =>
               link.hasDropdown ? (
                 <div key={link.label} className="relative">
@@ -56,8 +57,6 @@ export default function Navbar() {
                     {link.label}
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
-
-                  {/* Dropdown */}
                   {dropdownOpen && (
                     <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
                       {link.children?.map((child) => (
@@ -76,33 +75,28 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="relative px-4 py-2 text-sm font-medium text-slate-800 hover:text-[#D52029] transition-colors duration-200 rounded-md hover:bg-red-50 group"
+                  className="px-4 py-2 text-sm font-medium text-slate-800 hover:text-[#D52029] transition-colors duration-200 rounded-md hover:bg-red-50"
                 >
                   {link.label}
-                  {/* Active underline indicator */}
-                  {link.href === "/" && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#D52029] rounded-full" />
-                  )}
                 </Link>
               )
             )}
           </nav>
 
-          {/* CTA Button */}
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center">
             <Link
               href="/company-profile"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#D52029] hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <circle cx="12" cy="12" r="10" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v8M8 12h8" />
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
               Company Profile
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden p-2 rounded-md text-slate-700 hover:bg-slate-100 transition-colors"
@@ -113,48 +107,82 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100 shadow-lg">
-          <div className="px-4 py-4 space-y-1">
+      {/* Mobile Menu — full-height slide-in panel */}
+      <div
+        className={`lg:hidden fixed inset-0 top-16 sm:top-20 z-40 transition-all duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+          onClick={() => setMobileOpen(false)}
+        />
+
+        {/* Drawer */}
+        <div
+          className={`absolute top-0 right-0 h-full w-72 bg-white shadow-2xl flex flex-col transition-transform duration-300 ${
+            mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Nav links */}
+          <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-1">
             {navLinks.map((link) => (
               <div key={link.label}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-800 hover:text-[#D52029] hover:bg-red-50 rounded-lg transition-colors"
-                >
-                  {link.label}
-                  {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                </Link>
-                {link.hasDropdown && link.children?.map((child) => (
+                {link.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                      className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-slate-800 hover:text-[#D52029] hover:bg-red-50 rounded-xl transition-colors"
+                    >
+                      {link.label}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${mobileDropdownOpen ? "rotate-180 text-[#D52029]" : ""}`}
+                      />
+                    </button>
+                    {mobileDropdownOpen && (
+                      <div className="ml-4 mt-1 border-l-2 border-red-100 pl-3 space-y-1">
+                        {link.children?.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-3 py-2.5 text-sm text-slate-600 hover:text-[#D52029] hover:bg-red-50 rounded-lg transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
                   <Link
-                    key={child.label}
-                    href={child.href}
+                    href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block pl-8 pr-4 py-2.5 text-sm text-slate-600 hover:text-[#D52029] hover:bg-red-50 rounded-lg transition-colors"
+                    className="flex items-center px-4 py-3 text-sm font-semibold text-slate-800 hover:text-[#D52029] hover:bg-red-50 rounded-xl transition-colors"
                   >
-                    {child.label}
+                    {link.label}
                   </Link>
-                ))}
+                )}
               </div>
             ))}
-            <div className="pt-3 pb-1">
-              <Link
-                href="/company-profile"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center gap-2 w-full py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <circle cx="12" cy="12" r="10" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v8M8 12h8" />
-                </svg>
-                Company Profile
-              </Link>
-            </div>
+          </nav>
+
+          {/* Bottom CTA */}
+          <div className="px-4 py-6 border-t border-slate-100">
+            <Link
+              href="/company-profile"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-xl transition-colors shadow-md"
+            >
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Download Company Profile
+            </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
