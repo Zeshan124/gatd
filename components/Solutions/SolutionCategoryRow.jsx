@@ -54,7 +54,7 @@ export default function SolutionCategoryRow({ title, items }) {
             style={{ width: "clamp(220px, calc(25vw - 28px), 300px)", scrollSnapAlign: "start" }}
           >
             {/* Image */}
-            <div className="relative w-full overflow-hidden" style={{ height: "220px" }}>
+            <div className="relative w-full overflow-hidden" style={{ height: "270px" }}>
               <Image
                 src={item.image}
                 alt={item.title}

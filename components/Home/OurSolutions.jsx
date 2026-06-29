@@ -22,7 +22,7 @@ const solutions = [
     title: "Consulting Service",
     description:
       "GATD's consulting services help organisations identify performance gaps and implement targeted strategies for sustainable growth. Our expert consultants partner with you to co-create solutions that align with your unique business goals and culture.",
-    image: "/images/solutions/consulting-service.jpg",
+    image: "/images/home/executive-educational.jpg",
     href: "/solutions/consulting-service",
   },
   {
@@ -32,7 +32,7 @@ const solutions = [
     title: "Customized Programs",
     description:
       "We design bespoke learning journeys tailored to your organisation's specific challenges, industry, and vision. Every program is built around real business outcomes, ensuring maximum relevance and impact for your teams.",
-    image: "/images/solutions/customized-programs.jpg",
+    image: "/images/home/executive-educational.jpg",
     href: "/solutions/customized-programs",
   },
   {
@@ -42,7 +42,7 @@ const solutions = [
     title: "Certified Programs",
     description:
       "Our internationally recognised certification programs equip professionals with credentials that validate their expertise and open doors to new career opportunities across the globe.",
-    image: "/images/solutions/certified-programs.jpg",
+    image: "/images/home/executive-educational.jpg",
     href: "/solutions/certified-programs",
   },
   {
@@ -52,7 +52,7 @@ const solutions = [
     title: "Executive Retreats",
     description:
       "Immersive retreat experiences designed to inspire strategic thinking, strengthen leadership cohesion, and renew executive focus — held in carefully curated environments that foster deep reflection and bold decision-making.",
-    image: "/images/solutions/executive-retreats.jpg",
+    image: "/images/home/executive-educational.jpg",
     href: "/solutions/executive-retreats",
   },
   {
@@ -62,7 +62,7 @@ const solutions = [
     title: "Incubators — Regional and International",
     description:
       "GATD's incubator programs nurture emerging business ideas and entrepreneurial talent, connecting regional innovators with international networks, mentorship, and the resources needed to scale.",
-    image: "/images/solutions/incubators.jpg",
+    image: "/images/home/executive-educational.jpg",
     href: "/solutions/incubators",
   },
   {
@@ -72,7 +72,7 @@ const solutions = [
     title: "Event Management",
     description:
       "From high-impact conferences to intimate leadership summits, GATD delivers end-to-end event management solutions that create memorable, purpose-driven experiences aligned with your organisational objectives.",
-    image: "/images/solutions/event-management.jpg",
+    image: "/images/home/executive-educational.jpg",
     href: "/solutions/event-management",
   },
 ];

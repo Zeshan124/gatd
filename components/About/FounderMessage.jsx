@@ -23,18 +23,18 @@ export default function FounderMessage() {
           {/* Left — founder photo with decorative blobs */}
           <div className="relative flex items-end justify-center lg:justify-start">
             {/* Red blob */}
-            <div className="absolute bottom-0 left-4 sm:left-10 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#D52029] -z-0" />
+            {/* <div className="absolute bottom-0 left-4 sm:left-10 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#D52029] -z-0" /> */}
             {/* Grey blob */}
-            <div className="absolute top-4 right-4 sm:right-10 w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-slate-200 -z-0" />
+            {/* <div className="absolute top-4 right-4 sm:right-10 w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-slate-200 -z-0" /> */}
 
             {/* Photo */}
             <div className="relative z-10">
               <Image
-                src="/images/about/founder.png"
+                src="/images/about/Khazi-M-Zafar.PNG"
                 alt="Khazi M. Zafar — Founder and CEO"
                 width={420}
                 height={480}
-                className="object-contain w-full max-w-xs sm:max-w-sm lg:max-w-md h-auto drop-shadow-xl"
+                className="object-contain w-full h-auto drop-shadow-xl"
                 priority
               />
             </div>

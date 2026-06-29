@@ -6,17 +6,7 @@ import Link from "next/link";
 const services = [
   {
     id: "human-capital",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="14" r="5" stroke="#F59E0B" strokeWidth="2" fill="none" />
-        <circle cx="30" cy="14" r="5" stroke="#F59E0B" strokeWidth="2" fill="none" />
-        <path d="M6 36c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#F59E0B" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <circle cx="36" cy="30" r="3" stroke="#F59E0B" strokeWidth="2" fill="none" />
-        <path d="M42 40c0-3.314-2.686-5-6-5" stroke="#F59E0B" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <circle cx="24" cy="36" r="4" stroke="#F59E0B" strokeWidth="2" fill="none" />
-        <path d="M28 42v-1a4 4 0 00-8 0v1" stroke="#F59E0B" strokeWidth="2" fill="none" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <Image src="/images/home/icon-1.svg" alt="" width={66} height={67} className="w-14 h-14 object-contain" />,
     title: "Human capital Management",
     subtitle: "At Global ATD, people are the core of success.",
     description:
@@ -24,15 +14,7 @@ const services = [
   },
   {
     id: "customized-training",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="10" width="28" height="20" rx="2" stroke="#8B5CF6" strokeWidth="2" fill="none" />
-        <path d="M10 34l4-4h16l4 4" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <circle cx="36" cy="34" r="6" stroke="#8B5CF6" strokeWidth="2" fill="none" />
-        <circle cx="36" cy="34" r="2" fill="#8B5CF6" />
-        <path d="M14 18h12M14 22h8" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <Image src="/images/home/icon-2.svg" alt="" width={65} height={67} className="w-14 h-14 object-contain" />,
     title: "Customized Training Solutions",
     subtitle: "GATD delivers customized training solutions",
     description:
@@ -40,15 +22,7 @@ const services = [
   },
   {
     id: "train-trainers",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="12" r="5" stroke="#10B981" strokeWidth="2" fill="none" />
-        <circle cx="12" cy="30" r="4" stroke="#10B981" strokeWidth="2" fill="none" />
-        <circle cx="36" cy="30" r="4" stroke="#10B981" strokeWidth="2" fill="none" />
-        <path d="M24 18v6M20 26l-6 6M28 26l6 6" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
-        <path d="M6 40c0-3.314 2.686-5 6-5s6 1.686 6 5M30 40c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#10B981" strokeWidth="2" fill="none" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <Image src="/images/home/icon-3.svg" alt="" width={64} height={67} className="w-14 h-14 object-contain" />,
     title: "Train the Trainers Program",
     subtitle: "GATD empowers organizations to build internal training teams.",
     description:
@@ -56,15 +30,7 @@ const services = [
   },
   {
     id: "sales-training",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="16" r="6" stroke="#F59E0B" strokeWidth="2" fill="none" />
-        <path d="M8 36c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#F59E0B" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <circle cx="32" cy="20" r="5" stroke="#F59E0B" strokeWidth="2" fill="none" />
-        <path d="M26 36c0-3.866 2.686-6 6-6s6 2.134 6 6" stroke="#F59E0B" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <path d="M30 14l2 2 4-4" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: <Image src="/images/home/icon-4.svg" alt="" width={67} height={67} className="w-14 h-14 object-contain" />,
     title: "Sales and Customer Service Training",
     subtitle: "Great customer experiences stem from knowledge and communication.",
     description:
@@ -98,7 +64,7 @@ export default function OurServices() {
         {/* Banner Image */}
         <div className="relative w-full rounded-3xl overflow-hidden mb-12" style={{ height: "clamp(220px, 30vw, 420px)" }}>
           <Image
-            src="/images/home/banner.jpg"
+            src="/images/home/our-services-banner.jpg"
             alt="GATD Services"
             fill
             className="object-cover object-center"
