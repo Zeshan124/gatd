@@ -30,7 +30,7 @@ export default function FounderMessage() {
             {/* Photo */}
             <div className="relative z-10">
               <Image
-                src="/images/about/Khazi-M-Zafar.PNG"
+                src="/images/about/Khazi-M-Zafar.png"
                 alt="Khazi M. Zafar — Founder and CEO"
                 width={420}
                 height={480}
