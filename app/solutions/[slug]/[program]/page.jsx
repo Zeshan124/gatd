@@ -8,6 +8,13 @@ import ProgramOverview from "@/components/Solutions/Programs/ProgramOverview";
 import CertificationFocus from "@/components/Solutions/Programs/CertificationFocus";
 import StrategicPillars from "@/components/Solutions/Programs/StrategicPillars";
 import WhatYoullGain from "@/components/Solutions/WhatYoullGain";
+import ProgramFacilitator from "@/components/Solutions/Programs/ProgramFacilitator";
+import RecognizedSpeaker from "@/components/Solutions/Programs/RecognizedSpeaker";
+import AccreditedBy from "@/components/Solutions/Programs/AccreditedBy";
+import ProgramPricing from "@/components/Solutions/Programs/ProgramPricing";
+import ProgramFAQ from "@/components/Solutions/Programs/ProgramFAQ";
+import ProgramRegistration from "@/components/Solutions/Programs/ProgramRegistration";
+import CommitmentBanner from "@/components/Home/CommitmentBanner";
 
 export async function generateStaticParams() {
   return Object.entries(programsData).map(([program, data]) => ({
@@ -61,6 +68,24 @@ export default function ProgramPage({ params }) {
           {program.gains && (
                     <WhatYoullGain heading={program.gainsHeading} gains={program.gains} />
                   )}
+                  
+                  <ProgramFacilitator />
+                  <RecognizedSpeaker />
+                  <AccreditedBy />
+                  <ProgramPricing
+                    heading={program.pricingHeading}
+                    currency={program.pricingCurrency}
+                    price={program.price}
+                    period={program.pricingPeriod}
+                    description={program.pricingDescription}
+                  />
+                  <ProgramFAQ faqs={program.faqs} />
+                  <ProgramRegistration
+                    badge={program.registrationBadge}
+                    heading={program.registrationHeading}
+                    backgroundImage={program.registrationBg}
+                  />
+                  <CommitmentBanner />
       </main>
       <Footer />
     </div>
