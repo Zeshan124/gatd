@@ -46,7 +46,7 @@ export default function ProgramFacilitator() {
             {/* Professor Image — cut out, no background */}
             <div className="relative w-full flex items-end justify-center lg:justify-start" style={{ minHeight: "420px" }}>
               <Image
-                src="/images/solutions/strategic-hr/prof.jpg"
+                src="/images/solutions/strategic-hr/prof.png"
                 alt="Prof. Dr. Joel Farnworth"
                 width={500}
                 height={560}
@@ -56,7 +56,7 @@ export default function ProgramFacilitator() {
             </div>
 
             {/* Name Card — overlays bottom of image */}
-            <div className="absolute bottom-0 left-0 right-0 lg:right-auto lg:left-0 mx-4 sm:mx-6 lg:mx-0 mb-0">
+            {/* <div className="absolute bottom-0 left-0 right-0 lg:right-auto lg:left-0 mx-4 sm:mx-6 lg:mx-0 mb-0">
               <div className="bg-white rounded-t-2xl px-6 py-5 shadow-xl w-full lg:max-w-sm">
                 <h3 className="text-xl sm:text-2xl font-bold text-red-600 mb-1">
                   Prof. Dr. Joel Farnworth
@@ -65,7 +65,7 @@ export default function ProgramFacilitator() {
                   Dean of Business and Management Studies EIU-Paris
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right — Content */}

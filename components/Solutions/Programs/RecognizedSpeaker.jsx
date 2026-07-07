@@ -7,11 +7,12 @@ export default function RecognizedSpeaker() {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
-
-        {/* Outer Card — full background image */}
-        <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200" style={{ minHeight: "340px" }}>
-
-          {/* Background Image — fills entire card */}
+        {/* Outer Card */}
+        <div
+          className="relative flex items-center justify-end rounded-3xl overflow-hidden border-2 border-slate-200"
+          style={{ minHeight: "340px" }}
+        >
+          {/* Background Image */}
           <Image
             src="/images/solutions/strategic-hr/recognized-speaker.jpg"
             alt="Team discussion - Recognized Speaker"
@@ -20,9 +21,8 @@ export default function RecognizedSpeaker() {
             priority
           />
 
-          {/* White Content Panel — overlaid on left using z-index */}
+          {/* White Content Panel */}
           <div className="relative z-10 w-full lg:w-1/2 bg-white m-4 sm:m-6 md:m-8 rounded-2xl px-7 sm:px-9 md:px-10 py-9 sm:py-11 md:py-12 flex flex-col justify-center shadow-sm">
-
             {/* Badge */}
             <span className="inline-block self-start px-4 py-2 text-sm font-semibold text-slate-700 bg-[#E8E8E8] rounded-lg mb-5">
               Our Vision
@@ -36,10 +36,10 @@ export default function RecognizedSpeaker() {
             {/* Description */}
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
               To be a global leader in executive education and corporate
-              training, transforming lives and organisations through industry-
-              relevant learning solutions. GATD empowers professionals and
-              businesses with the skills and expertise to excel, driving growth,
-              success, and a positive impact on the global workforce.
+              training, transforming lives and organisations through
+              industry-relevant learning solutions. GATD empowers professionals
+              and businesses with the skills and expertise to excel, driving
+              growth, success, and a positive impact on the global workforce.
             </p>
 
             {/* CTA */}
@@ -50,9 +50,7 @@ export default function RecognizedSpeaker() {
               Explore More
             </Link>
           </div>
-
         </div>
-
       </div>
     </section>
   );

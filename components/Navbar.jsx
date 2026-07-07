@@ -13,9 +13,15 @@ const navLinks = [
     href: "/solutions",
     hasDropdown: true,
     children: [
-      { label: "Leadership Development", href: "/solutions/leadership" },
-      { label: "Corporate Training", href: "/solutions/corporate-training" },
-      { label: "Executive Coaching", href: "/solutions/executive-coaching" },
+      { label: "Executive Educational Program", href: "/solutions/spldp" },
+      { label: "Consulting Service", href: "/solutions/ministries" },
+      { label: "Customized Programs", href: "/solutions/risk-crisis" },
+      { label: "Certified Programs", href: "/solutions/strategic-hr" },
+      { label: "Executive Retreats", href: "/solutions/strategic-reset" },
+      { label: "Incubators — Regional & International", href: "/solutions/global-healthtech" },
+      { label: "Event Management", href: "/solutions/program-management" },
+      { label: "Global Conferences", href: "/solutions/global-marketing-forum" },
+      { label: "Industry Specific", href: "/solutions/financial-strategy" },
     ],
   },
   { label: "Services", href: "/services" },
@@ -48,23 +54,37 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) =>
               link.hasDropdown ? (
-                <div key={link.label} className="relative">
+                <div
+                  key={link.label}
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
                   <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
                     className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-800 hover:text-[#D52029] transition-colors duration-200 rounded-md hover:bg-red-50"
                   >
                     {link.label}
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
                   {dropdownOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
+                    <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
+                      <div className="px-3 py-1.5 mb-1 border-b border-slate-100">
+                        <Link
+                          href="/solutions"
+                          className="text-xs font-bold text-[#D52029] uppercase tracking-wider hover:underline"
+                          onClick={() => setDropdownOpen(false)}
+                        >
+                          View All Solutions →
+                        </Link>
+                      </div>
                       {link.children?.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-slate-700 hover:text-[#D52029] hover:bg-red-50 transition-colors"
+                          onClick={() => setDropdownOpen(false)}
+                          className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:text-[#D52029] hover:bg-red-50 transition-colors group"
                         >
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#D52029] transition-colors shrink-0" />
                           {child.label}
                         </Link>
                       ))}
@@ -141,14 +161,22 @@ export default function Navbar() {
                       />
                     </button>
                     {mobileDropdownOpen && (
-                      <div className="ml-4 mt-1 border-l-2 border-red-100 pl-3 space-y-1">
+                      <div className="ml-4 mt-1 border-l-2 border-red-100 pl-3 space-y-0.5">
+                        <Link
+                          href="/solutions"
+                          onClick={() => setMobileOpen(false)}
+                          className="block px-3 py-2 text-xs font-bold text-[#D52029] uppercase tracking-wider"
+                        >
+                          View All Solutions →
+                        </Link>
                         {link.children?.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block px-3 py-2.5 text-sm text-slate-600 hover:text-[#D52029] hover:bg-red-50 rounded-lg transition-colors"
+                            className="flex items-center gap-2 px-3 py-2.5 text-sm text-slate-600 hover:text-[#D52029] hover:bg-red-50 rounded-lg transition-colors group"
                           >
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#D52029] transition-colors shrink-0" />
                             {child.label}
                           </Link>
                         ))}
