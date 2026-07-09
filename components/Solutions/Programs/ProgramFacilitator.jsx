@@ -38,11 +38,11 @@ export default function ProgramFacilitator() {
         }}
       />
 
-      <div className="relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
 
           {/* Left — Professor Image + Name Card */}
-          <div className="relative flex flex-col justify-end pt-8 lg:pt-0">
+          <div className="relative flex flex-col justify-end pt-4 lg:pt-0">
             {/* Professor Image — cut out, no background */}
             <div className="relative w-full flex items-end justify-center lg:justify-start" style={{ minHeight: "420px" }}>
               <Image
@@ -50,7 +50,7 @@ export default function ProgramFacilitator() {
                 alt="Prof. Dr. Joel Farnworth"
                 width={500}
                 height={560}
-                className="object-contain object-bottom w-auto h-full max-h-[480px] sm:max-h-[520px]"
+                className="object-contain object-bottom w-auto h-full max-h-[480px] sm:max-h-[580px]"
                 priority
               />
             </div>
