@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const defaultFaqs = [
   {
@@ -53,17 +53,14 @@ export default function ProgramFAQ({
                   <span className={`text-sm sm:text-base font-bold leading-snug transition-colors ${isOpen ? "text-[#414143]" : "text-[#414143] group-hover:text-[#D52029]"}`}>
                     {faq.question}
                   </span>
-                  {isOpen
-                    ? <ChevronUp className="w-5 h-5 shrink-0 text-[#414143]" />
-                    : <ChevronDown className="w-5 h-5 shrink-0 text-[#414143]" />
-                  }
+                  <ChevronDown className={`w-5 h-5 shrink-0 text-[#414143] transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`} />
                 </button>
 
-                {isOpen && (
-                  <p className="pb-5 text-sm sm:text-base text-slate-600 leading-relaxed">
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+                  <p className="pb-6 text-sm sm:text-base text-slate-600 leading-relaxed">
                     {faq.answer}
                   </p>
-                )}
+                </div>
               </div>
             );
           })}

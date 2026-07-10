@@ -78,7 +78,7 @@ export default function StrategicPillars({
   const moduleList = modules || defaultModules;
 
   return (
-    <section className="relative bg-linear-to-b from-white via-slate-50/60 to-white py-16 sm:py-20 md:py-24 overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden" style={{ background: "linear-gradient(to bottom, #f5f5f5 100%, #e0e0e0 50%, #c8c8c8 100%)" }}>
 
       {/* Background decoration */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">

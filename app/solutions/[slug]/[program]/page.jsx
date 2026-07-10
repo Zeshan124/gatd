@@ -7,7 +7,6 @@ import ProgramsHero from "@/components/Solutions/Programs/ProgramsHero";
 import ProgramOverview from "@/components/Solutions/Programs/ProgramOverview";
 import CertificationFocus from "@/components/Solutions/Programs/CertificationFocus";
 import StrategicPillars from "@/components/Solutions/Programs/StrategicPillars";
-import WhatYoullGain from "@/components/Solutions/WhatYoullGain";
 import ProgramFacilitator from "@/components/Solutions/Programs/ProgramFacilitator";
 import RecognizedSpeaker from "@/components/Solutions/Programs/RecognizedSpeaker";
 import AccreditedBy from "@/components/Solutions/Programs/AccreditedBy";
@@ -15,6 +14,7 @@ import ProgramPricing from "@/components/Solutions/Programs/ProgramPricing";
 import ProgramFAQ from "@/components/Solutions/Programs/ProgramFAQ";
 import ProgramRegistration from "@/components/Solutions/Programs/ProgramRegistration";
 import CommitmentBanner from "@/components/Home/CommitmentBanner";
+import WhatYouWillGain from "@/components/Solutions/Programs/WhatYouWillGain";
 
 export async function generateStaticParams() {
   return Object.entries(programsData).map(([program, data]) => ({
@@ -66,7 +66,7 @@ export default function ProgramPage({ params }) {
           />
           <StrategicPillars />
           {program.gains && (
-                    <WhatYoullGain heading={program.gainsHeading} gains={program.gains} />
+                    <WhatYouWillGain heading={program.gainsHeading} gains={program.gains} />
                   )}
                   
                   <ProgramFacilitator />

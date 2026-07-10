@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function ProgramOverview() {
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section className="bg-white py-12 sm:py-16 md:py-10">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left — Image */}
@@ -28,7 +28,7 @@ export default function ProgramOverview() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#414143] mb-6 leading-tight">
               Strategic HR
 Business Partner
 Certification

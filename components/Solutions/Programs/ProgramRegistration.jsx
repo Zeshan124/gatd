@@ -71,13 +71,13 @@ export default function ProgramRegistration({
   const handleSubmit = (e) => { e.preventDefault(); };
 
   const inputClass =
-    "w-full bg-transparent border-b border-slate-300 focus:border-[#D52029] outline-none py-3 text-sm text-[#414143] placeholder-slate-500 transition-colors duration-200";
+    "w-full bg-white border border-slate-300 focus:border-[#D52029] outline-none rounded-md px-5 py-4 text-sm text-[#414143] placeholder-[#414143] transition-colors duration-200";
 
   return (
-    <section className="relative bg-[#F2F2F2] py-14 sm:py-18 md:py-24 overflow-hidden">
+    <section className="relative py-14 sm:py-18 md:py-24 overflow-hidden">
 
       {/* Background image */}
-      <Image src={backgroundImage} alt="" fill className="object-cover object-center opacity-20" />
+      <Image src={backgroundImage} alt="" fill className="object-cover object-center" />
 
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
@@ -101,15 +101,15 @@ export default function ProgramRegistration({
           {/* Email */}
           <input name="email" type="email" value={form.email} onChange={handleChange}
             placeholder="Email Address"
-            className={`${inputClass} border border-[#D52029] rounded px-3`} />
+            className={inputClass} />
 
           {/* Phone with country selector */}
-          <div className="relative flex items-center border-b border-slate-300 focus-within:border-[#D52029] transition-colors duration-200">
+          <div className="relative flex items-center bg-white border border-slate-300 focus-within:border-[#D52029] rounded-md transition-colors duration-200">
             {/* Country flag button */}
             <button
               type="button"
               onClick={() => { setDropdownOpen((p) => !p); setSearch(""); }}
-              className="flex items-center gap-1.5 pr-3 shrink-0 py-3"
+              className="flex items-center gap-1.5 px-4 shrink-0 py-4"
             >
               <img
                 src={`https://flagcdn.com/w40/${selectedCountry.code.toLowerCase()}.png`}
@@ -124,7 +124,7 @@ export default function ProgramRegistration({
             <div className="w-px h-5 bg-slate-300 mr-3 shrink-0" />
             <input name="phone" type="tel" value={form.phone} onChange={handleChange}
               placeholder="Phone Number"
-              className="flex-1 bg-transparent outline-none py-3 text-sm text-[#414143] placeholder-slate-500" />
+              className="flex-1 bg-transparent outline-none py-4 pr-5 text-sm text-[#414143] placeholder-[#414143]" />
 
             {/* Dropdown */}
             {dropdownOpen && (
@@ -181,7 +181,7 @@ export default function ProgramRegistration({
           {/* Programmes */}
           <div className="relative">
             <select name="programme" value={form.programme} onChange={handleChange}
-              className={`${inputClass} appearance-none pr-8 cursor-pointer`}>
+              className={`${inputClass} appearance-none pr-10 cursor-pointer`}>
               <option value="" disabled>Programmes</option>
               {programOptions.map((opt) => (
                 <option key={opt} value={opt}>{opt}</option>

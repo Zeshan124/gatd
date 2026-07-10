@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const defaultFocusAreas = [
   {
@@ -33,106 +32,85 @@ const defaultFocusAreas = [
     description: "Workforce strategies are directly tied to organisational performance.",
     isHighlighted: false,
   },
+  {
+    id: 5,
+    image: "/images/solutions/Programs/focus-1.jpg",
+    title: "Change & Culture Management",
+    description: "Driving sustainable change through people-centric culture transformation.",
+    isHighlighted: false,
+  },
 ];
+
+function FocusCard({ item }) {
+  const [hovered, setHovered] = useState(false);
+  const isActive = hovered;
+
+  return (
+    <div
+      className="group rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Image */}
+      <div className="relative w-full overflow-hidden" style={{ height: "240px" }}>
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Top accent bar */}
+        <div className={`absolute top-0 inset-x-0 h-1 bg-[#D52029] transition-all duration-300 ${isActive ? "opacity-100" : "opacity-0"}`} />
+      </div>
+
+      {/* Card footer */}
+      <div className={`transition-colors duration-300 ${isActive ? "bg-[#D52029]" : "bg-white"}`}>
+        <div className="px-5 pt-4 pb-2">
+          <h3 className={`text-base font-bold leading-snug transition-colors duration-300 ${isActive ? "text-white" : "text-[#414143]"}`}>
+            {item.title}
+          </h3>
+        </div>
+        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "max-h-24 opacity-100 pb-5" : "max-h-0 opacity-0 pb-0"}`}>
+          <p className="px-5 text-sm text-white/90 leading-relaxed">{item.description}</p>
+        </div>
+        {!isActive && <div className="pb-4" />}
+      </div>
+    </div>
+  );
+}
 
 export default function CertificationFocus({
   heading = "This Certification Focuses on Developing",
   focusAreas,
 }) {
-  const scrollRef = useRef(null);
-  const [hoveredId, setHoveredId] = useState(null);
-
   const items = focusAreas || defaultFocusAreas;
-
-  const scroll = (dir) => {
-    if (!scrollRef.current) return;
-    const card = scrollRef.current.querySelector(".focus-card");
-    const width = (card?.offsetWidth || 280) + 16;
-    scrollRef.current.scrollBy({ left: dir === "left" ? -width : width, behavior: "smooth" });
-  };
+  const topRow = items.slice(0, 3);
+  const bottomRow = items.slice(3, 5);
 
   return (
-    <section className="bg-[#F8F9FA] py-12 sm:py-16 md:py-20 overflow-hidden">
+    <section className="bg-[#F8F9FA] py-12 sm:py-16 md:py-20">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
-        {/* Header row */}
-        <div className="flex items-end justify-between gap-6 mb-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] leading-tight max-w-xl">
-            {heading}
-          </h2>
-          <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={() => scroll("left")}
-              aria-label="Previous"
-              className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-[#D52029] text-[#D52029] hover:bg-[#D52029] hover:text-white transition-all duration-200"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              aria-label="Next"
-              className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-[#D52029] text-[#D52029] hover:bg-[#D52029] hover:text-white transition-all duration-200"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] leading-tight mb-10 max-w-2xl">
+          {heading}
+        </h2>
+
+        {/* Top row — 3 cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-5">
+          {topRow.map((item) => (
+            <FocusCard key={item.id} item={item} />
+          ))}
         </div>
 
-        {/* Cards strip */}
-        <div
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide pb-2"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
-          {items.map((item) => {
-            const isActive = hoveredId === item.id || (hoveredId === null && item.isHighlighted);
-
-            return (
-              <div
-                key={item.id}
-                className="focus-card shrink-0 rounded-2xl overflow-hidden cursor-pointer"
-                style={{ width: "clamp(240px, 22vw, 300px)", scrollSnapAlign: "start" }}
-                onMouseEnter={() => setHoveredId(item.id)}
-                onMouseLeave={() => setHoveredId(null)}
-              >
-                {/* Image */}
-                <div className="relative w-full" style={{ height: "270px" }}>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-
-                {/* Card bottom */}
-                <div className={`transition-all duration-300 ${isActive ? "bg-[#D52029]" : "bg-white"}`}>
-                  <div className="px-5 pt-5 pb-2">
-                    <h3 className={`text-base sm:text-lg font-bold leading-snug ${isActive ? "text-white" : "text-[#414143]"}`}>
-                      {item.title}
-                    </h3>
-                  </div>
-
-                  {/* Expandable description */}
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "max-h-24 opacity-100 pb-5" : "max-h-0 opacity-0 pb-0"}`}>
-                    <p className="px-5 text-sm text-white/90 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {!isActive && <div className="pb-5" />}
-                </div>
-              </div>
-            );
-          })}
+        {/* Bottom row — 2 cards, centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:w-2/3 md:mx-auto">
+          {bottomRow.map((item) => (
+            <FocusCard key={item.id} item={item} />
+          ))}
         </div>
 
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
     </section>
   );
 }

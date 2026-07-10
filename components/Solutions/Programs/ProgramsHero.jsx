@@ -15,7 +15,7 @@ export default function ProgramsHero({ program }) {
   } = program;
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20">
+    <section className="bg-white py-12 sm:py-16 md:py-12">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Eyebrow */}
@@ -60,7 +60,7 @@ export default function ProgramsHero({ program }) {
 
         {/* Banner Image */}
         {banner && (
-          <div className="relative w-full rounded-2xl overflow-hidden mb-12 sm:mb-16" style={{ height: "clamp(240px, 38vw, 500px)" }}>
+          <div className="relative w-full rounded-2xl overflow-hidden mb-12 sm:mb-4" style={{ height: "clamp(240px, 38vw, 500px)" }}>
             <Image
               src={banner}
               alt={bannerAlt || title}
@@ -72,7 +72,7 @@ export default function ProgramsHero({ program }) {
         )}
 
         {/* Bottom Centered Text Block */}
-        {(subheading || subtext) && (
+        {/* {(subheading || subtext) && (
           <div className="text-center mx-auto">
             {subheading && (
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] mb-5 leading-tight">
@@ -85,7 +85,7 @@ export default function ProgramsHero({ program }) {
               </p>
             )}
           </div>
-        )}
+        )} */}
 
       </div>
     </section>

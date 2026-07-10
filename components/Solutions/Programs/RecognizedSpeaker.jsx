@@ -1,55 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function RecognizedSpeaker() {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
-        {/* Outer Card */}
-        <div
-          className="relative flex items-center justify-end rounded-3xl overflow-hidden border-2 border-slate-200"
-          style={{ minHeight: "340px" }}
-        >
-          {/* Background Image */}
-          <Image
-            src="/images/solutions/strategic-hr/recognized-speaker.jpg"
-            alt="Team discussion - Recognized Speaker"
-            fill
-            className="object-cover object-center"
-            priority
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* White Content Panel */}
-          <div className="relative z-10 w-full lg:w-1/2 bg-white m-4 sm:m-6 md:m-8 rounded-2xl px-7 sm:px-9 md:px-10 py-9 sm:py-11 md:py-12 flex flex-col justify-center shadow-sm">
+          {/* Left — Certificate Image */}
+          <div className="flex items-center justify-center">
+            <div className="relative w-full max-w-sm sm:max-w-full">
+              <Image
+                src="/images/solutions/strategic-hr/certificate_image.jpg"
+                alt="Certification on Successful Completion"
+                width={480}
+                height={620}
+                className="w-full h-auto object-contain"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Right — Content */}
+          <div className="flex flex-col justify-center">
             {/* Badge */}
-            <span className="inline-block self-start px-4 py-2 text-sm font-semibold text-slate-700 bg-[#E8E8E8] rounded-lg mb-5">
-              Our Vision
+            <span className="inline-block self-start px-4 py-2 text-sm font-semibold text-slate-700 bg-[#E8E8E8] rounded-lg mb-6">
+              Recognised Speaker Credentials
             </span>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] mb-5 leading-tight">
-              Envisioned Future
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1a1a1a] leading-tight mb-6">
+              Certification<br />on Successful<br />Completion
             </h2>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
-              To be a global leader in executive education and corporate
-              training, transforming lives and organisations through
-              industry-relevant learning solutions. GATD empowers professionals
-              and businesses with the skills and expertise to excel, driving
-              growth, success, and a positive impact on the global workforce.
+            {/* Paragraphs */}
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+              When you complete the program, you will receive the Strategic HR Business Partner Certification from EIU Paris and the Global Association for Training & Development (GATD).
             </p>
-
-            {/* CTA */}
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center self-start px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-md transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            >
-              Explore More
-            </Link>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              This certification recognizes your expertise in boardroom-level HR strategy. It shows your commitment to global standards, innovative leadership, and your ability to drive business success through strategic HR management.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
