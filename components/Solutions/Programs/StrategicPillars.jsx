@@ -110,7 +110,7 @@ function StepBadge({ number }) {
   return (
     <div className="relative flex items-center justify-center w-12 h-12">
       <div className="absolute w-16 h-16 rounded-full bg-[#D52029]/20 blur-xl" />
-      <div className="relative w-12 h-12 rounded-full bg-linear-to-br from-[#ef4444] to-[#9b1c1c] flex items-center justify-center text-white font-black text-lg shadow-xl shadow-[#D52029]/30 ring-4 ring-white">
+      <div className="relative w-12 h-12 rounded-full bg-linear-to-br from-[#D52029] to-[#575757] flex items-center justify-center text-white font-black text-lg shadow-xl shadow-[#D52029]/30 ring-4 ring-white">
         {number}
       </div>
     </div>
@@ -228,7 +228,7 @@ export default function StrategicPillars({
                   }} />
                   {/* Arrow body */}
                   <div className="relative flex items-center justify-center min-h-[120px]" style={{
-                    background: "linear-gradient(145deg, #575757 0%, #3a3a3a 55%, #272727 100%)",
+                    background: "linear-gradient(145deg, #D52029 0%, #3a3a3a 55%, #272727 100%)",
                     clipPath: clip,
                     zIndex: 1,
                   }}>

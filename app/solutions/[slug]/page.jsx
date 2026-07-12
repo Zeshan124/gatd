@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SolutionHero from "@/components/Solutions/SolutionHero";
@@ -31,6 +32,24 @@ export default function SolutionPage({ params }) {
     <div className="min-h-screen">
       <Navbar />
       <main>
+        {/* Breadcrumb — only shown for individual pages with a parent */}
+        {solution.parentSlug && (
+          <div className="bg-white border-b border-slate-100">
+            <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-3">
+              <nav className="flex items-center gap-2 text-xs sm:text-sm text-slate-500">
+                <Link href="/" className="hover:text-[#D52029] transition-colors">Home</Link>
+                <span>/</span>
+                <Link href="/solutions" className="hover:text-[#D52029] transition-colors">Solutions</Link>
+                <span>/</span>
+                <Link href={`/solutions/${solution.parentSlug}`} className="hover:text-[#D52029] transition-colors truncate max-w-[140px] sm:max-w-xs">
+                  {solution.parentTitle}
+                </Link>
+                <span>/</span>
+                <span className="text-[#414143] font-medium truncate max-w-[120px] sm:max-w-[200px]">{solution.title}</span>
+              </nav>
+            </div>
+          </div>
+        )}
         <SolutionHero solution={solution} />
         <CommitmentToExcellence mapImage={solution.mapImage} />
         {solution.programmes?.length > 0 && (

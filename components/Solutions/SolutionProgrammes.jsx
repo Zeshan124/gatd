@@ -95,8 +95,8 @@ export default function SolutionProgrammes({ programmes = [] }) {
           className="flex gap-4 overflow-x-auto scrollbar-hide pb-2"
           style={{ scrollSnapType: "x mandatory" }}
         >
-          {displayed.map((prog, idx) => {
-            const isActive = hoveredId === prog.id || (hoveredId === null && idx === 0);
+          {displayed.map((prog) => {
+            const isActive = hoveredId === prog.id;
             return (
               <Link
                 key={prog.id}
@@ -116,23 +116,17 @@ export default function SolutionProgrammes({ programmes = [] }) {
                   />
                 </div>
 
-                {/* Label */}
+                {/* Label — fixed height so card never resizes */}
                 <div
-                  className={`px-5 pt-5 pb-5 flex-1 transition-all duration-300 ${
-                    isActive ? "bg-[#D52029] text-white" : "bg-white text-[#414143]"
+                  className={`h-42 px-5 pt-5 flex flex-col justify-start transition-colors duration-300 ${
+                    isActive ? "bg-[#D52029]" : "bg-white"
                   }`}
                 >
-                  <h3 className={`text-base sm:text-lg font-bold leading-snug ${isActive ? "text-white" : "text-[#414143]"}`}>
+                  <h3 className={`text-base sm:text-lg font-bold leading-snug mb-2 transition-colors duration-300 ${isActive ? "text-white" : "text-[#414143]"}`}>
                     {prog.title}
                   </h3>
-
-                  {/* Expandable description on hover */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isActive ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-sm text-white/90 leading-relaxed">
+                  <div className={`transition-all duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}>
+                    <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
                       {prog.description || "GATD delivers world-class expertise in this area to help your organisation grow and succeed."}
                     </p>
                   </div>

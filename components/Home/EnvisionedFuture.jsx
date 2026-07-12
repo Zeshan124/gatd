@@ -13,7 +13,7 @@ export default function EnvisionedFuture() {
 
           {/* Background Image — fills entire card */}
           <Image
-            src="/images/home/envisioned-future.jpg"
+            src="/images/home/envisioned-future.png"
             alt="Team discussion - Envisioned Future"
             fill
             className="object-cover object-center"
