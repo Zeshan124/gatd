@@ -50,7 +50,7 @@ export default function AboutWhoWeAre() {
               />
 
               {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
+              {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" /> */}
 
               {/* Red Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">

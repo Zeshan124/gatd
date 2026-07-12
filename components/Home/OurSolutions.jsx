@@ -12,7 +12,7 @@ const solutions = [
     title: "Executive Educational Program",
     description:
       "Global ATD's Executive Education Programs are crafted to equip senior leaders and high-potential executives with the strategic insight and leadership capabilities needed to navigate today's fast-changing business environment. Grounded in real-world application and future-forward thinking, our programs support leaders in translating learning into measurable organizational impact.",
-    image: "/images/home/executive-educational.jpg",
+    image: "/images/solutions/executive-educational/1.jpg",
     href: "/solutions/executive-educational",
   },
   {
@@ -22,7 +22,7 @@ const solutions = [
     title: "Consulting Service",
     description:
       "GATD's consulting services help organisations identify performance gaps and implement targeted strategies for sustainable growth. Our expert consultants partner with you to co-create solutions that align with your unique business goals and culture.",
-    image: "/images/home/executive-educational.jpg",
+    image: "/images/solutions/consulting-services/2.jpg",
     href: "/solutions/consulting-service",
   },
   {
@@ -32,7 +32,7 @@ const solutions = [
     title: "Customized Programs",
     description:
       "We design bespoke learning journeys tailored to your organisation's specific challenges, industry, and vision. Every program is built around real business outcomes, ensuring maximum relevance and impact for your teams.",
-    image: "/images/home/executive-educational.jpg",
+    image: "/images/solutions/Customized-Programs/3.jpg",
     href: "/solutions/customized-programs",
   },
   {
@@ -42,7 +42,7 @@ const solutions = [
     title: "Certified Programs",
     description:
       "Our internationally recognised certification programs equip professionals with credentials that validate their expertise and open doors to new career opportunities across the globe.",
-    image: "/images/home/executive-educational.jpg",
+    image: "/images/solutions/Certified-Programs/4.webp",
     href: "/solutions/certified-programs",
   },
   {
@@ -52,7 +52,7 @@ const solutions = [
     title: "Executive Retreats",
     description:
       "Immersive retreat experiences designed to inspire strategic thinking, strengthen leadership cohesion, and renew executive focus — held in carefully curated environments that foster deep reflection and bold decision-making.",
-    image: "/images/home/executive-educational.jpg",
+    image: "/images/solutions/Executive-Retreats/5.webp",
     href: "/solutions/executive-retreats",
   },
   {
@@ -62,7 +62,7 @@ const solutions = [
     title: "Incubators — Regional and International",
     description:
       "GATD's incubator programs nurture emerging business ideas and entrepreneurial talent, connecting regional innovators with international networks, mentorship, and the resources needed to scale.",
-    image: "/images/home/executive-educational.jpg",
+    image: "/images/solutions/Incubators/6.jpg",
     href: "/solutions/incubators",
   },
   {
@@ -72,7 +72,7 @@ const solutions = [
     title: "Event Management",
     description:
       "From high-impact conferences to intimate leadership summits, GATD delivers end-to-end event management solutions that create memorable, purpose-driven experiences aligned with your organisational objectives.",
-    image: "/images/home/executive-educational.jpg",
+   image: "/images/solutions/Event-Management/7.jpg",
     href: "/solutions/event-management",
   },
 ];
@@ -155,7 +155,7 @@ export default function OurSolutions() {
           </div>
 
           {/* Right — Image */}
-          <div className="relative w-full rounded-3xl overflow-hidden" style={{ height: "clamp(280px, 35vw, 520px)" }}>
+          <div className="relative w-full rounded-xl overflow-hidden" style={{ height: "clamp(280px, 35vw, 520px)" }}>
             <Image
               key={active.id}
               src={active.image}

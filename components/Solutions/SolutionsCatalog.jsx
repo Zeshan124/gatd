@@ -13,6 +13,9 @@ const catalog = [
       { id: 2, title: "Women in Leadership", image: "/images/solutions/executive-educational/Women-in-Leadership.jpg", href: "/solutions/women-in-leadership" },
       { id: 3, title: "Next-Gen Strategic Leadership for CxOs", image: "/images/solutions/executive-educational/Next-Gen-Strategic-Leadership.jpg", href: "/solutions/next-gen-cxo" },
       { id: 4, title: "Global CEO Executive Leadership Mastery Program", image: "/images/solutions/executive-educational/Global-CEO-Executive-Leadership-Mastery.jpg", href: "/solutions/ceo-mastery" },
+      { id: 5, title: "MetroMinds – Leadership and City Marketing & Global", image: "/images/solutions/executive-educational/MetroMinds.jpg", href: "/solutions/metroMinds" },
+      { id: 6, title: "Executive Leadership in Strategy, Innovation & AI", image: "/images/solutions/executive-educational/Global-CEO-Executive.jpg", href: "/solutions/ceo-mastery" },
+      { id: 7, title: "Global Operations in Excellence (GOiE) Program", image: "/images/solutions/executive-educational/Global-Operations-in-Excellence.jpg", href: "/solutions/ceo-mastery" },
     ],
   },
   {
@@ -23,6 +26,9 @@ const catalog = [
       { id: 2, title: "Talent Development & Succession Planning", image: "/images/solutions/consulting-services/consulting-2.jpg", href: "/solutions/talent-development" },
       { id: 3, title: "Strategic Workforce Planning and Development", image: "/images/solutions/consulting-services/consulting-3.jpg", href: "/solutions/workforce-planning" },
       { id: 4, title: "Balanced Scorecard & Performance Management", image: "/images/solutions/consulting-services/consulting-4.jpg", href: "/solutions/balanced-scorecard" },
+      { id: 5, title: "Initiation and Implementation of Professional Academies", image: "/images/solutions/consulting-services/consulting-5.jpg", href: "/solutions/professional-academies" },
+      { id: 6, title: "HR Portals", image: "/images/solutions/consulting-services/consulting-6.jpg", href: "/solutions/hr-portals" },
+      { id: 7, title: "Non-Profit Welfare Organizations", image: "/images/solutions/consulting-services/consulting-7.jpg", href: "/solutions/non-profit-welfare" },
     ],
   },
   {
@@ -33,6 +39,9 @@ const catalog = [
       { id: 2, title: "Strategic Rightsizing", image: "/images/solutions/Customized-Programs/custom-2.jpg", href: "/solutions/strategic-rightsizing" },
       { id: 3, title: "Transformation Leadership in Mergers & Acquisitions", image: "/images/solutions/Customized-Programs/custom-3.jpg", href: "/solutions/mergers-acquisitions" },
       { id: 4, title: "Global Operations in Excellence (GOiE)", image: "/images/solutions/Customized-Programs/custom-4.jpg", href: "/solutions/goie" },
+      { id: 5, title: "Corporate Governance", image: "/images/solutions/Customized-Programs/custom-5.jpg", href: "/solutions/corporate-governance" },
+      { id: 6, title: "Organizational Culture & Change Leadership", image: "/images/solutions/Customized-Programs/custom-6.jpg", href: "/solutions/organizational-culture" },
+      { id: 7, title: "Leading the Board", image: "/images/solutions/Customized-Programs/custom-7.jpg", href: "/solutions/leading-the-board" },
     ],
   },
   {
@@ -43,6 +52,8 @@ const catalog = [
       { id: 2, title: "Change Management", image: "/images/solutions/Certified-Programs/certified-2.jpg", href: "/solutions/change-management" },
       { id: 3, title: "Public Private Partnerships", image: "/images/solutions/Certified-Programs/certified-3.jpg", href: "/solutions/ppp" },
       { id: 4, title: "Key Performance Indicators (KPIs)", image: "/images/solutions/Certified-Programs/certified-4.jpg", href: "/solutions/kpis" },
+      { id: 5, title: "Performance Management", image: "/images/solutions/Certified-Programs/certified-5.jpg", href: "/solutions/performance-management" },
+      { id: 6, title: "Digital Marketing", image: "/images/solutions/Certified-Programs/certified-6.jpg", href: "/solutions/digital-marketing" },
     ],
   },
   {
@@ -62,6 +73,7 @@ const catalog = [
       { id: 2, title: "Net Zero Innovation lab", image: "/images/solutions/incubators/incubator-2.jpg", href: "/solutions/net-zero" },
       { id: 3, title: "GovTech Catalyst Hub", image: "/images/solutions/incubators/incubator-3.jpg", href: "/solutions/govtech" },
       { id: 4, title: "EdTech Skills", image: "/images/solutions/incubators/incubator-4.jpg", href: "/solutions/edtech" },
+      { id: 5, title: "Diaspora Innovation Network", image: "/images/solutions/incubators/incubator-5.jpg", href: "/solutions/diaspora-innovation-network" },
     ],
   },
   {
@@ -72,6 +84,7 @@ const catalog = [
       { id: 2, title: "Corporate Social Responsibility (CSR) Events", image: "/images/solutions/Event-Management/event-2.jpg", href: "/solutions/csr-events" },
       { id: 3, title: "Product Launches & Brand Activation Events", image: "/images/solutions/Event-Management/event-3.jpg", href: "/solutions/product-launches" },
       { id: 4, title: "Trade Shows and Expo Management", image: "/images/solutions/Event-Management/event-4.jpg", href: "/solutions/trade-shows" },
+       { id: 5, title: "Award Ceremonies & Gala Dinners", image: "/images/solutions/Event-Management/event-5.jpg", href: "/solutions/award-ceremonies" },
     ],
   },
   {
@@ -92,6 +105,9 @@ const catalog = [
       { id: 2, title: "Innovation Design into Action", image: "/images/solutions/Industry-Specific/industry-2.jpg", href: "/solutions/innovation-design" },
       { id: 3, title: "Global Marketing & Sales Leadership", image: "/images/solutions/Industry-Specific/industry-3.jpg", href: "/solutions/marketing-sales" },
       { id: 4, title: "Strategic Leadership Across Healthcare Ecosystems", image: "/images/solutions/Industry-Specific/industry-4.jpg", href: "/solutions/healthcare-leadership" },
+      { id: 5, title: "High Performance Governments", image: "/images/solutions/Industry-Specific/industry-5.jpg", href: "/solutions/high-performance-governments" },
+      { id: 6, title: "Family Business Entrepreneurship", image: "/images/solutions/Industry-Specific/industry-6.jpg", href: "/solutions/family-business-leadership" },
+      { id: 7, title: "Real Estate – Smart Investing", image: "/images/solutions/Industry-Specific/industry-7.jpg", href: "/solutions/real-estate-smart-investing" }
     ],
   },
 ];

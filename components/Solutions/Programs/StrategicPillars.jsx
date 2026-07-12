@@ -8,36 +8,98 @@ const defaultDays = [
   { label: "DAY 3", id: "day3" },
 ];
 
-const defaultModules = [
-  {
-    id: 1,
-    arrowTitle: "Establishing & Delivering Strategic HR",
-    labelPosition: "bottom",
-    sideLabel: "HR Role Evolution",
-    sideDescription: "Exploring the evolving role of HR Business Partnership and strategic HR services",
-  },
-  {
-    id: 2,
-    arrowTitle: "Next Generation HR",
-    labelPosition: "top",
-    sideLabel: "Future HR Models",
-    sideDescription: "Discussing administrator, BP, and predictive contributor roles, and creating people strategy",
-  },
-  {
-    id: 3,
-    arrowTitle: "The HRPB Role",
-    labelPosition: "bottom",
-    sideLabel: "HRBP Capabilities",
-    sideDescription: "Defining the HRBP role as a generalist and one-stop solution center, emphasizing influence and change facilitation",
-  },
-  {
-    id: 4,
-    arrowTitle: "Business Strategies to Performance Deliverables",
-    labelPosition: "top",
-    sideLabel: "Performance Alignment",
-    sideDescription: "Linking business strategy to performance deliverables, KPIs, and commitment",
-  },
-];
+const defaultModulesByDay = {
+  day1: [
+    {
+      id: 1,
+      arrowTitle: "Establishing & Delivering Strategic HR",
+      labelPosition: "bottom",
+      sideLabel: "HR Role Evolution",
+      sideDescription: "Exploring the evolving role of HR Business Partnership and strategic HR services",
+    },
+    {
+      id: 2,
+      arrowTitle: "Next Generation HR",
+      labelPosition: "top",
+      sideLabel: "Future HR Models",
+      sideDescription: "Discussing administrator, BP, and predictive contributor roles, and creating people strategy",
+    },
+    {
+      id: 3,
+      arrowTitle: "The HRPB Role",
+      labelPosition: "bottom",
+      sideLabel: "HRBP Capabilities",
+      sideDescription: "Defining the HRBP role as a generalist and one-stop solution center, emphasizing influence and change facilitation",
+    },
+    {
+      id: 4,
+      arrowTitle: "Business Strategies to Performance Deliverables",
+      labelPosition: "top",
+      sideLabel: "Performance Alignment",
+      sideDescription: "Linking business strategy to performance deliverables, KPIs, and commitment",
+    },
+  ],
+  day2: [
+    {
+      id: 1,
+      arrowTitle: "Talent Management & Succession",
+      labelPosition: "bottom",
+      sideLabel: "Organisational Readiness",
+      sideDescription: "Identifying HIPOs, planning the workforce, and securing succession for critical roles ensures a strong talent pipeline",
+    },
+    {
+      id: 2,
+      arrowTitle: "People Management",
+      labelPosition: "top",
+      sideLabel: "Leadership Excellence",
+      sideDescription: "Effective leadership combines impactful style, practical L & M examples, clear success indicators, and precise selection criteria",
+    },
+    {
+      id: 3,
+      arrowTitle: "Reward Offerings & Management",
+      labelPosition: "bottom",
+      sideLabel: "Compensation Strategy",
+      sideDescription: "Balancing fixed and variable cash options, trending benefits, brand differentiation, and market positioning drives competitive advantage",
+    },
+    {
+      id: 4,
+      arrowTitle: "HR Technology and Data",
+      labelPosition: "top",
+      sideLabel: "HR Analytics",
+      sideDescription: "Leveraging current and future tech, HR tools, data dashboards, and metrics aligns workforce insights with business impact",
+    },
+  ],
+  day3: [
+    {
+      id: 1,
+      arrowTitle: "Organisation Development & Change",
+      labelPosition: "bottom",
+      sideLabel: "Organisational Design",
+      sideDescription: "Core OD elements—diversity, engagement, values, and the work experience—drive a truly engaged organisation",
+    },
+    {
+      id: 2,
+      arrowTitle: "Current People Challenges & Solutions?",
+      labelPosition: "top",
+      sideLabel: "People Strategy",
+      sideDescription: "Addressing current challenges by focusing on top priorities, implementing targeted solutions, and taking clear first steps",
+    },
+    {
+      id: 3,
+      arrowTitle: "Predictive People Analytics",
+      labelPosition: "bottom",
+      sideLabel: "Future Insights",
+      sideDescription: "Key predictions from AI, consultants, participants, and the trainer highlight emerging trends and future directions",
+    },
+    {
+      id: 4,
+      arrowTitle: "Human Capital Trends",
+      labelPosition: "top",
+      sideLabel: "Next Normal",
+      sideDescription: "Anticipating likely needs and responses, focusing on flexible work, CSR, engagement, and inclusive HR advice for the upcoming strategic plan",
+    },
+  ],
+};
 
 const CLIP_FIRST = "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)";
 const CLIP_REST  = "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 10% 50%)";
@@ -71,14 +133,15 @@ export default function StrategicPillars({
   heading = "3 Strategic Pillars",
   badge = "3 Days",
   days,
-  modules,
+  modulesByDay,
 }) {
   const [activeDay, setActiveDay] = useState("day1");
   const dayList = days || defaultDays;
-  const moduleList = modules || defaultModules;
+  const allModules = modulesByDay || defaultModulesByDay;
+  const moduleList = allModules[activeDay] || allModules[dayList[0]?.id] || [];
 
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden" style={{ background: "linear-gradient(to bottom, #f5f5f5 100%, #e0e0e0 50%, #c8c8c8 100%)" }}>
+    <section className="relative py-16 sm:py-20 md:py-20 overflow-hidden" style={{ background: "linear-gradient(to bottom, #f5f5f5 100%, #e0e0e0 50%, #c8c8c8 100%)" }}>
 
       {/* Background decoration */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">

@@ -74,7 +74,7 @@ export default function LatestUpdates() {
 
         {/* Title Row */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#414143] leading-tight">
             Latest Updates
           </h2>
         </div>

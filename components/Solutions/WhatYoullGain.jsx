@@ -73,7 +73,7 @@ export default function WhatYoullGain({ heading, gains }) {
   const items = gains || defaultGains;
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20">
+    <section className="bg-white py-12 sm:py-16 md:py-18">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Heading */}
@@ -82,21 +82,21 @@ export default function WhatYoullGain({ heading, gains }) {
         </h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, idx) => {
-            const isLastRow = idx >= items.length - (items.length % 3 || 3);
+            const col = idx % 3;
+            const totalRows = Math.ceil(items.length / 3);
+            const isLastRow = Math.floor(idx / 3) === totalRows - 1;
+            const isLastCol = col === 2;
             return (
               <div
                 key={item.id}
-                className={`flex flex-col pt-8 pb-10 ${
-                  idx < items.length - (items.length <= 3 ? 0 : items.length % 3 || 3)
-                    ? "border-b border-slate-200"
-                    : ""
-                } ${
-                  (idx % 3 !== 2) && idx < items.length - 1
-                    ? "lg:border-r lg:pr-8 lg:mr-0"
-                    : ""
-                } ${idx % 3 !== 0 ? "lg:pl-8" : ""}`}
+                className={[
+                  "flex flex-col py-10",
+                  col === 0 ? "lg:pr-10" : col === 2 ? "lg:pl-10" : "lg:px-10",
+                  !isLastCol ? "lg:border-r border-slate-200" : "",
+                  !isLastRow ? "border-b border-slate-200" : "",
+                ].join(" ")}
               >
                 {/* Icon */}
                 <div className="mb-5 flex justify-center sm:justify-start">

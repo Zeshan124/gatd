@@ -15,7 +15,7 @@ export default function ProgramsHero({ program }) {
   } = program;
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-12">
+    <section className="bg-white py-12 sm:py-16 md:py-12 border-b border-slate-200">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Eyebrow */}

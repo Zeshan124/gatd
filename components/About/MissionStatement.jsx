@@ -28,7 +28,7 @@ export default function MissionStatement() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] mb-6 leading-tight">
               Mission Statement
             </h2>
 

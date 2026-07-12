@@ -27,7 +27,7 @@ export default function GATDHero() {
             </p>
 
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-slate-900 leading-[1.1] mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-[#414143] leading-[1.1] mb-8">
               Aspire Higher and be<br />Inspired to Achieve
             </h1>
 
@@ -70,7 +70,7 @@ export default function GATDHero() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="/get-started"
+                href="/solutions"
                 className="inline-flex items-center justify-center px-6 py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-md transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 Get Started
@@ -100,7 +100,7 @@ export default function GATDHero() {
         <div className="py-10 sm:py-12 border-t border-slate-100 mt-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-6">
             {/* Label */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#414143]">
               Our Strategic Partners
             </h2>
 

@@ -70,7 +70,7 @@ export default function AccreditedBy() {
         {/* Header Row */}
         <div className="flex items-center justify-between mb-8 sm:mb-10">
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143]">
             Accredited By
           </h2>
 

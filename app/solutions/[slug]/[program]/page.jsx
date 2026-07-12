@@ -48,11 +48,11 @@ export default function ProgramPage({ params }) {
               <span>/</span>
               <Link href="/solutions" className="hover:text-[#D52029] transition-colors">Solutions</Link>
               <span>/</span>
-              <Link href={`/solutions/${program.parentSlug}`} className="hover:text-[#D52029] transition-colors">
+              <Link href={`/solutions/${program.parentSlug}`} className="hover:text-[#D52029] transition-colors truncate max-w-[100px] sm:max-w-40">
                 {program.parentTitle}
               </Link>
               <span>/</span>
-              <span className="text-[#414143] font-medium truncate max-w-[200px]">{program.title}</span>
+              <span className="text-[#414143] font-medium truncate max-w-[120px] sm:max-w-[200px]">{program.title}</span>
             </nav>
           </div>
         </div>
@@ -60,14 +60,18 @@ export default function ProgramPage({ params }) {
         {/* Components will be added here as you share them */}
           <ProgramsHero program={program} />
           <ProgramOverview />
-          <CertificationFocus
+          
+          <StrategicPillars />
+         
+                    
+                 
+                  <CertificationFocus
             heading={program.focusHeading}
             focusAreas={program.focusAreas}
           />
-          <StrategicPillars />
-          {program.gains && (
-                    <WhatYouWillGain heading={program.gainsHeading} gains={program.gains} />
-                  )}
+ {program.gains && (
+          <WhatYouWillGain heading={program.gainsHeading} gains={program.gains} />
+           )}
                   
                   <ProgramFacilitator />
                   <RecognizedSpeaker />

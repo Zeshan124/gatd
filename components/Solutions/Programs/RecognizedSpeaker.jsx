@@ -30,7 +30,7 @@ export default function RecognizedSpeaker() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1a1a1a] leading-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#414143] leading-tight mb-6">
               Certification<br />on Successful<br />Completion
             </h2>
 

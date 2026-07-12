@@ -10,7 +10,7 @@ const features = [
     badge: "Key features",
     image: "/images/home/customized-training.jpg",
     title: "Customized Training Programs",
-    subtitle: "GATD delivers customized training solutions.",
+    subtitle: null,
     description:
       "Tailored to each client's goals, challenges, and industry needs creating relevant programs and case studies aligned with their vision.",
     isHighlighted: true,
@@ -42,24 +42,24 @@ const features = [
     description: null,
     isHighlighted: false,
   },
-  {
-    id: 5,
-    badge: "Key features",
-     image: "/images/home/blended-learning.jpg",
-    title: "Global Network Access",
-    subtitle: null,
-    description: null,
-    isHighlighted: false,
-  },
-  {
-    id: 6,
-    badge: "Key features",
-     image: "/images/home/blended-learning.jpg",
-    title: "Certification Programs",
-    subtitle: null,
-    description: null,
-    isHighlighted: false,
-  },
+  // {
+  //   id: 5,
+  //   badge: "Key features",
+  //    image: "/images/home/blended-learning.jpg",
+  //   title: "Global Network Access",
+  //   subtitle: null,
+  //   description: null,
+  //   isHighlighted: false,
+  // },
+  // {
+  //   id: 6,
+  //   badge: "Key features",
+  //    image: "/images/home/blended-learning.jpg",
+  //   title: "Certification Programs",
+  //   subtitle: null,
+  //   description: null,
+  //   isHighlighted: false,
+  // },
 ];
 
 export default function KeyFeatures() {
@@ -80,7 +80,7 @@ export default function KeyFeatures() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
           {/* Title */}
           <div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#414143] leading-tight">
               Key Features<br />Competitive Advantage
             </h2>
           </div>
@@ -111,7 +111,7 @@ export default function KeyFeatures() {
           style={{ scrollSnapType: "x mandatory" }}
         >
           {features.map((feature) => {
-            const isActive = hoveredId === feature.id || (hoveredId === null && feature.isHighlighted);
+            const isActive = hoveredId === feature.id;
 
             return (
               <div
@@ -141,53 +141,23 @@ export default function KeyFeatures() {
                   </div>
                 </div>
 
-                {/* Card Bottom Content */}
+                {/* Card Bottom Content — fixed height so card never resizes */}
                 <div
-                  className={`transition-all duration-300 ${
-                    isActive
-                      ? "bg-red-600 text-white"
-                      : "bg-white text-slate-900"
+                  className={`h-42 px-5 pt-5 flex flex-col justify-start transition-colors duration-300 ${
+                    isActive ? "bg-red-600" : "bg-white"
                   }`}
                 >
-                  {/* Always visible: Title */}
-                  <div className="px-5 pt-5 pb-2">
-                    <h3
-                      className={`text-lg sm:text-xl font-bold leading-snug transition-colors duration-300 ${
-                        isActive ? "text-white" : "text-slate-900"
-                      }`}
-                    >
-                      {feature.title}
-                    </h3>
+                  <h3 className={`text-lg sm:text-xl font-bold leading-snug mb-2 transition-colors duration-300 ${isActive ? "text-white" : "text-slate-900"}`}>
+                    {feature.title}
+                  </h3>
+                  <div className={`transition-all duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}>
+                    {feature.subtitle && (
+                      <p className="text-sm font-bold text-white mb-1">{feature.subtitle}</p>
+                    )}
+                    <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
+                      {feature.description || "GATD delivers world-class expertise in this area to help your organisation grow and succeed."}
+                    </p>
                   </div>
-
-                  {/* Hover / Highlighted Content */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isActive ? "max-h-40 opacity-100 pb-5" : "max-h-0 opacity-0 pb-0"
-                    }`}
-                  >
-                    <div className="px-5">
-                      {feature.subtitle && (
-                        <p className="text-sm font-bold text-white mb-2">
-                          {feature.subtitle}
-                        </p>
-                      )}
-                      {feature.description && (
-                        <p className="text-sm text-white/90 leading-relaxed">
-                          {feature.description}
-                        </p>
-                      )}
-                      {/* For cards without subtitle/description show a generic line */}
-                      {!feature.subtitle && !feature.description && (
-                        <p className="text-sm text-white/90 leading-relaxed">
-                          GATD delivers world-class expertise in this area to help your organisation grow and succeed.
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Bottom padding when not active */}
-                  {!isActive && <div className="pb-5" />}
                 </div>
               </div>
             );

@@ -19,7 +19,7 @@ export default function ProgrammeSuiteFor({
   const items = audience || defaultAudience;
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20">
+    <section className="bg-[#F8F9FA] py-12 sm:py-16 md:py-20">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
         {/* Outer card — relative so the bg image fills it */}

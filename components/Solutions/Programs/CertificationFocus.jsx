@@ -1,115 +1,140 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 const defaultFocusAreas = [
   {
     id: 1,
-    image: "/images/solutions/Programs/focus-1.jpg",
     title: "Strategic HR Alignment",
     description: "Strategic thinking aligned with business priorities",
-    isHighlighted: true,
+    icon: (
+      <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6" stroke="#D52029" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="20" cy="12" r="5" />
+        <path d="M10 32c0-5.523 4.477-9 10-9s10 3.477 10 9" />
+        <path d="M28 16l2-2M30 14l2-2M32 18l2-1M33 23l2 1" />
+      </svg>
+    ),
   },
   {
     id: 2,
-    image: "/images/solutions/Programs/focus-2.jpg",
     title: "Data-Driven Decision Making",
     description: "Data-driven HR decision-making for measurable outcomes",
-    isHighlighted: false,
+    icon: (
+      <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6" stroke="#414143" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="6" y="24" width="6" height="10" />
+        <rect x="14" y="18" width="6" height="16" />
+        <rect x="22" y="12" width="6" height="22" />
+        <rect x="30" y="20" width="4" height="14" />
+        <path d="M8 22l6-6 8-4 8 2" />
+      </svg>
+    ),
   },
   {
     id: 3,
-    image: "/images/solutions/Programs/focus-3.jpg",
     title: "Influential Leadership & Stakeholders",
     description: "Leadership influence and effective stakeholder management",
-    isHighlighted: false,
+    icon: (
+      <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6" stroke="#D52029" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="20" cy="10" r="4" />
+        <circle cx="8" cy="28" r="3.5" />
+        <circle cx="32" cy="28" r="3.5" />
+        <path d="M20 14v6M16 20l-6 5M24 20l6 5" />
+      </svg>
+    ),
   },
   {
     id: 4,
-    image: "/images/solutions/Programs/focus-4.jpg",
     title: "Performance-Focused Workforce Strategy",
-    description: "Workforce strategies are directly tied to organisational performance.",
-    isHighlighted: false,
+    description: "Workforce strategies are directly linked to organisational performance.",
+    icon: (
+      <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6" stroke="#414143" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="8" r="3" />
+        <path d="M18 14l-4 8 5-2 2 8" />
+        <path d="M14 22l-4 6M22 28l4-4 4 4" />
+        <path d="M8 34h24" />
+      </svg>
+    ),
   },
   {
     id: 5,
-    image: "/images/solutions/Programs/focus-1.jpg",
     title: "Change & Culture Management",
     description: "Driving sustainable change through people-centric culture transformation.",
-    isHighlighted: false,
+    icon: (
+      <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6" stroke="#D52029" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 20a12 12 0 0 1 22-6.5" />
+        <path d="M32 20a12 12 0 0 1-22 6.5" />
+        <path d="M28 10l2 3.5-3.5 1" />
+        <path d="M12 30l-2-3.5 3.5-1" />
+        <circle cx="20" cy="20" r="3" />
+      </svg>
+    ),
   },
 ];
 
-function FocusCard({ item }) {
-  const [hovered, setHovered] = useState(false);
-  const isActive = hovered;
-
+function NumberBadge({ number, isFirst }) {
   return (
     <div
-      className="group rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="flex items-center justify-center w-12 h-10 shrink-0 text-white text-sm font-black"
+      style={{
+        background: isFirst ? "#D52029" : "#1e2027",
+        clipPath: "polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%)",
+      }}
     >
-      {/* Image */}
-      <div className="relative w-full overflow-hidden" style={{ height: "240px" }}>
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        {/* Top accent bar */}
-        <div className={`absolute top-0 inset-x-0 h-1 bg-[#D52029] transition-all duration-300 ${isActive ? "opacity-100" : "opacity-0"}`} />
-      </div>
-
-      {/* Card footer */}
-      <div className={`transition-colors duration-300 ${isActive ? "bg-[#D52029]" : "bg-white"}`}>
-        <div className="px-5 pt-4 pb-2">
-          <h3 className={`text-base font-bold leading-snug transition-colors duration-300 ${isActive ? "text-white" : "text-[#414143]"}`}>
-            {item.title}
-          </h3>
-        </div>
-        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "max-h-24 opacity-100 pb-5" : "max-h-0 opacity-0 pb-0"}`}>
-          <p className="px-5 text-sm text-white/90 leading-relaxed">{item.description}</p>
-        </div>
-        {!isActive && <div className="pb-4" />}
-      </div>
+      {String(number).padStart(2, "0")}
     </div>
   );
 }
 
 export default function CertificationFocus({
-  heading = "This Certification Focuses on Developing",
-  focusAreas,
+  heading,
+  leftImage = "/images/solutions/strategic-hr/certification_focus.jpg",
+  rightImage = "/images/solutions/strategic-hr/steps.jpg",
 }) {
-  const items = focusAreas || defaultFocusAreas;
-  const topRow = items.slice(0, 3);
-  const bottomRow = items.slice(3, 5);
-
   return (
-    <section className="bg-[#F8F9FA] py-12 sm:py-16 md:py-20">
+    <section className="bg-white py-12 sm:py-16 md:py-20 border-b border-slate-200">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
+        {/* Decorative line + label */}
+       
+
+        {/* Decorative line + label */}
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-0.5 bg-[#D52029]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#D52029] uppercase">This</span>
+        </div>
+
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] leading-tight mb-10 max-w-2xl">
-          {heading}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#414143] mb-8 sm:mb-10">
+          <span className="text-[#D52029]">Certification</span><br />
+          {heading || "Focuses on Developing"}
         </h2>
 
-        {/* Top row — 3 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-5">
-          {topRow.map((item) => (
-            <FocusCard key={item.id} item={item} />
-          ))}
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
 
-        {/* Bottom row — 2 cards, centered */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:w-2/3 md:mx-auto">
-          {bottomRow.map((item) => (
-            <FocusCard key={item.id} item={item} />
-          ))}
-        </div>
+          {/* Left image */}
+          <div className="w-full">
+            <Image
+              src={leftImage}
+              alt="Certification Focus"
+              width={640}
+              height={560}
+              className="w-full object-cover rounded-2xl"
+              style={{ height: "clamp(260px, 38vw, 680px)" }}
+            />
+          </div>
 
+          {/* Right image */}
+          <div className="w-full">
+            <Image
+              src={rightImage}
+              alt="Certification Steps"
+              width={640}
+              height={560}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+
+        </div>
       </div>
     </section>
   );

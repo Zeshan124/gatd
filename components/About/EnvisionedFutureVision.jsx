@@ -15,7 +15,7 @@ export default function EnvisionedFutureVision() {
           </span>
 
           {/* Heading */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-5 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#414143] mb-5 leading-tight">
             Envisioned Future
           </h2>
 
