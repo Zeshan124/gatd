@@ -87,8 +87,8 @@ function NumberBadge({ number, isFirst }) {
 
 export default function CertificationFocus({
   heading,
+  focusAreas,
   leftImage = "/images/solutions/strategic-hr/certification_focus.jpg",
-  rightImage = "/images/solutions/strategic-hr/steps.jpg",
 }) {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20 border-b border-slate-200">
@@ -123,15 +123,58 @@ export default function CertificationFocus({
             />
           </div>
 
-          {/* Right image */}
-          <div className="w-full">
-            <Image
-              src={rightImage}
-              alt="Certification Steps"
-              width={640}
-              height={560}
-              className="w-full h-auto object-contain"
-            />
+          {/* Right — steps list */}
+          <div className="w-full flex flex-col gap-3">
+            {(focusAreas || defaultFocusAreas).map((item, idx) => {
+              const isRed = idx % 2 === 0;
+              return (
+                <div
+                  key={item.id}
+                  className="group flex items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:bg-slate-50 hover:shadow-md"
+                >
+                  {/* Left — icon + number stack */}
+                  <div className="relative shrink-0 flex flex-col items-center">
+                    {/* Dashed outer ring */}
+                    <div className="relative w-16 h-16 flex items-center justify-center">
+                      <div className={`absolute inset-0 rounded-full border-[1.5px] border-dashed transition-colors duration-300 ${isRed ? "border-[#D52029]/60 group-hover:border-[#D52029]" : "border-slate-300 group-hover:border-slate-400"}`} />
+                      {/* White inner circle */}
+                      <div className="absolute inset-[5px] rounded-full bg-white shadow-sm flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                      {/* Number chip — bottom-right overlap */}
+                      <div
+                        className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-black shadow-md border-2 border-white"
+                        style={{ background: isRed ? "#D52029" : "#1e2027" }}
+                      >
+                        {item.id}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Connector line */}
+                  <div className="shrink-0 flex flex-col items-center self-stretch">
+                    <div className={`w-0.5 flex-1 ${isRed ? "bg-[#D52029]/30" : "bg-slate-200"}`} />
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`text-[10px] font-black uppercase tracking-[0.18em] ${isRed ? "text-[#D52029]" : "text-slate-400"}`}>
+                        0{item.id}
+                      </span>
+                      <div className={`flex-1 h-px ${isRed ? "bg-[#D52029]/20" : "bg-slate-100"}`} />
+                    </div>
+                    <h3 className={`text-sm sm:text-base font-bold leading-snug mb-1 transition-colors duration-300 ${isRed ? "text-[#D52029] group-hover:text-[#b01c23]" : "text-[#1a1a1a] group-hover:text-[#D52029]"}`}>
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{item.description}</p>
+                  </div>
+
+                  {/* Right accent bar */}
+                  <div className={`shrink-0 w-1 self-stretch rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${isRed ? "bg-[#D52029]" : "bg-[#1e2027]"}`} />
+                </div>
+              );
+            })}
           </div>
 
         </div>

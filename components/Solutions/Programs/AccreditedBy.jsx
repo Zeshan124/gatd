@@ -30,26 +30,26 @@ const accreditors = [
     name: "Business Graduates Association Member",
     logo: "/images/solutions/strategic-hr/5.png",
   },
-  {
-    id: 6,
-    name: "AACSB Accredited",
-    logo: "/images/solutions/strategic-hr/2.png",
-  },
-  {
-    id: 7,
-    name: "AACSB Accredited",
-    logo: "/images/solutions/strategic-hr/1.png",
-  },
-  {
-    id: 8,
-    name: "AACSB Accredited",
-    logo: "/images/solutions/strategic-hr/3.png",
-  },
-  {
-    id: 9,
-    name: "AACSB Accredited",
-    logo: "/images/solutions/strategic-hr/4.png",
-  },
+  // {
+  //   id: 6,
+  //   name: "AACSB Accredited",
+  //   logo: "/images/solutions/strategic-hr/2.png",
+  // },
+  // {
+  //   id: 7,
+  //   name: "AACSB Accredited",
+  //   logo: "/images/solutions/strategic-hr/1.png",
+  // },
+  // {
+  //   id: 8,
+  //   name: "AACSB Accredited",
+  //   logo: "/images/solutions/strategic-hr/3.png",
+  // },
+  // {
+  //   id: 9,
+  //   name: "AACSB Accredited",
+  //   logo: "/images/solutions/strategic-hr/4.png",
+  // },
 ];
 
 export default function AccreditedBy() {
@@ -96,13 +96,13 @@ export default function AccreditedBy() {
         {/* Logos Strip */}
         <div
           ref={scrollRef}
-          className="flex items-center gap-10 sm:gap-14 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8 lg:-mx-12 lg:px-12 xl:-mx-16 xl:px-16"
+          className="flex items-center justify-center flex-wrap gap-10 sm:gap-14 overflow-x-auto scrollbar-hide pb-2"
         >
           {accreditors.map((a) => (
             <div
               key={a.id}
               className="flex-shrink-0 flex items-center justify-center h-20 sm:h-24 grayscale-0 hover:scale-105 transition-transform duration-200"
-              style={{ minWidth: "120px" }}
+              style={{ minWidth: "180px" }}
             >
               <Image
                 src={a.logo}

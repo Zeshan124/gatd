@@ -23,20 +23,18 @@ export default function ProgramFacilitator() {
   ];
 
   return (
-    <section className="relative bg-red-600 overflow-hidden py-0">
+    <section className="relative overflow-hidden py-0">
 
-      {/* Subtle wave/line pattern overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 40px,
-            rgba(255,255,255,0.4) 40px,
-            rgba(255,255,255,0.4) 42px
-          )`
-        }}
+      {/* Background image */}
+      <Image
+        src="/images/solutions/strategic-hr/program-facilitator-banner.jpg"
+        alt=""
+        fill
+        className="object-cover object-center"
+        priority
       />
+      {/* Dark overlay for text readability */}
+      
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
