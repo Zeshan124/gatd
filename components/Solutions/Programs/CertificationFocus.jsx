@@ -139,7 +139,9 @@ export default function CertificationFocus({
                       <div className={`absolute inset-0 rounded-full border-[1.5px] border-dashed transition-colors duration-300 ${isRed ? "border-[#D52029]/60 group-hover:border-[#D52029]" : "border-slate-300 group-hover:border-slate-400"}`} />
                       {/* White inner circle */}
                       <div className="absolute inset-[5px] rounded-full bg-white shadow-sm flex items-center justify-center">
-                        {item.icon}
+                        {item.iconSrc
+                          ? <Image src={item.iconSrc} alt="" width={24} height={24} className="w-6 h-6 object-contain" />
+                          : item.icon}
                       </div>
                       {/* Number chip — bottom-right overlap */}
                       <div

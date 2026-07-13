@@ -61,7 +61,12 @@ export default function ProgramPage({ params }) {
           <ProgramsHero program={program} />
           <ProgramOverview />
           
-          <StrategicPillars />
+          <StrategicPillars
+            heading={program.pillarHeading}
+            badge={program.pillarBadge}
+            days={program.pillarDays}
+            modulesByDay={program.pillarModules}
+          />
          
                     
                  
