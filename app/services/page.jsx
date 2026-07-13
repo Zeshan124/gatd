@@ -1,0 +1,23 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ServicesHero from "@/components/Services/ServicesHero";
+import OurServices from "@/components/Services/OurServices";
+import KeyFeatures from "@/components/Services/KeyFeatures";
+import WhatMakes from "@/components/Services/WhatMakes";
+import CommitmentBanner from "@/components/Home/CommitmentBanner";
+
+export default function Contact() {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <main>
+        <ServicesHero />
+        <WhatMakes />
+        <OurServices />
+        <KeyFeatures />
+        <CommitmentBanner />
+      </main>
+      <Footer />
+    </div>
+  );
+}

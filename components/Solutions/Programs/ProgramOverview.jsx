@@ -9,19 +9,8 @@ export default function ProgramOverview() {
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Left — Image */}
-          <div className="relative w-full rounded-2xl overflow-hidden shadow-lg aspect-[4/3]">
-            <Image
-              src="/images/solutions/Programs/program-overview.jpg"
-              alt="GATD team collaborating"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          {/* Right — Content */}
-          <div>
+          {/* Content — first in DOM so it renders above image on mobile */}
+          <div className="order-1 lg:order-0">
             {/* Badge */}
             <span className="inline-block px-4 py-2 text-sm font-semibold text-slate-800 bg-[#E8E8E8] rounded-lg mb-5">
              Programme Overview
@@ -46,6 +35,17 @@ Certification
             >
               Explore More
             </Link> */}
+          </div>
+
+          {/* Image — second in DOM, so it appears below content on mobile */}
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-lg aspect-4/3 order-2 lg:order-0">
+            <Image
+              src="/images/solutions/Programs/program-overview.jpg"
+              alt="Programme Overview"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
         </div>

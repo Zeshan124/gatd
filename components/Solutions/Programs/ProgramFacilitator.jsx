@@ -27,7 +27,7 @@ export default function ProgramFacilitator() {
 
       {/* Background image */}
       <Image
-        src="/images/solutions/strategic-hr/program-facilitator-banner.jpg"
+        src="/images/solutions/strategic-hr/program-facilitator-banner.png"
         alt=""
         fill
         className="object-cover object-center"
@@ -37,10 +37,10 @@ export default function ProgramFacilitator() {
       
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end [&>*]:order-none">
 
-          {/* Left — Professor Image + Name Card */}
-          <div className="relative flex items-center justify-center py-10 lg:py-16">
+          {/* Left — Professor Image (order-2 on mobile so content shows first) */}
+          <div className="relative flex items-center justify-center py-10 lg:py-16 order-2 lg:order-1">
             {/* Professor Image — cut out, no background */}
             <div className="relative flex items-center justify-center">
               <Image
@@ -66,8 +66,8 @@ export default function ProgramFacilitator() {
             </div> */}
           </div>
 
-          {/* Right — Content */}
-          <div className="py-10 sm:py-14 lg:py-16 pl-0 lg:pl-8">
+          {/* Right — Content (order-1 on mobile so it shows first) */}
+          <div className="py-10 sm:py-14 lg:py-16 pl-0 lg:pl-8 order-1 lg:order-2">
             {/* Title */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 sm:mb-10">
               Program Facilitator
