@@ -1,5 +1,4 @@
 import { Poppins } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -30,17 +29,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
       </head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-L2TQZVBC96"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-L2TQZVBC96');
-      `}</Script>
-      <body className={`${poppins.variable} antialiased`} suppressHydrationWarning>
+<body className={`${poppins.variable} antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>
