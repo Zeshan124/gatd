@@ -88,7 +88,7 @@ function NumberBadge({ number, isFirst }) {
 export default function CertificationFocus({
   heading,
   focusAreas,
-  leftImage = "/images/solutions/strategic-hr/certification_focus.png",
+  leftImage = "/images/solutions/strategic-hr/certification_focus1.png",
 }) {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20 border-b border-slate-200">
@@ -119,7 +119,7 @@ export default function CertificationFocus({
               width={640}
               height={560}
               className="w-full object-cover rounded-2xl"
-              style={{ height: "clamp(260px, 38vw, 680px)" }}
+              style={{ height: "clamp(260px, 33vw, 680px)" }}
             />
           </div>
 
