@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
       </head>
-<body className={`${poppins.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${poppins.variable} antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>

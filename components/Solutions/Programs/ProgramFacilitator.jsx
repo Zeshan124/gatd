@@ -27,7 +27,7 @@ export default function ProgramFacilitator() {
 
       {/* Background image */}
       <Image
-        src="/images/solutions/strategic-hr/program-facilitator-banner.png"
+        src="/images/solutions/strategic-hr/program_facilitator_BG.png"
         alt=""
         fill
         className="object-cover object-center"
@@ -44,9 +44,9 @@ export default function ProgramFacilitator() {
             {/* Professor Image — cut out, no background */}
             <div className="relative flex items-center justify-center">
               <Image
-                src="/images/solutions/strategic-hr/prof.png"
+                src="/images/solutions/strategic-hr/Dr_Joel.png"
                 alt="Prof. Dr. Joel Farnworth"
-                width={500}
+                width={600}
                 height={560}
                 className="object-contain w-auto max-h-[460px] sm:max-h-[540px]"
                 priority
