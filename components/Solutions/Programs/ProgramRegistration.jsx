@@ -41,6 +41,10 @@ const programOptions = [
   { id: 6, label: "Employment Law and Compliance", price: 2800 },
   { id: 7, label: "Organisational Design and Change", price: 3850 },
   { id: 8, label: "Executive Compensation and Benefits Strategy", price: 2800 },
+  { id: 9, label: "Impactive HR for the Uninitiated", price: 2500 },
+  { id: 10, label: "Progressing Organization Development", price: 2800 },
+  { id: 11, label: "Advancing Trainer Development (ToT)", price: 2600 },
+  { id: 12, label: "Management: Best Practices for Best Results", price: 2700 },
 ];
 
 export default function ProgramRegistration({
