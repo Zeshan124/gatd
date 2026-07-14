@@ -1,18 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import SolutionBrochureModal from "./SolutionBrochureModal";
 
 export default function SolutionHero({ solution }) {
   const {
     eyebrow = "Our Solutions",
     title,
     description,
-    brochure = "/brochure.pdf",
     banner,
     bannerAlt,
     subheading,
     subtext,
+    programmes = [],
   } = solution;
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="bg-white py-12 sm:py-16 md:py-16 border-b border-slate-200">
@@ -26,7 +30,7 @@ export default function SolutionHero({ solution }) {
         {/* Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-10 sm:mb-12">
           {/* Left — Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#414143] leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold text-[#414143] leading-tight">
             {title}
           </h1>
 
@@ -36,9 +40,8 @@ export default function SolutionHero({ solution }) {
               {description}
             </p>
             <div>
-              <a
-                href={brochure}
-                download
+              <button
+                onClick={() => setModalOpen(true)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center flex-shrink-0">
@@ -47,7 +50,7 @@ export default function SolutionHero({ solution }) {
                   </svg>
                 </span>
                 Download Programme Brochure
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -82,6 +85,13 @@ export default function SolutionHero({ solution }) {
         )}
 
       </div>
+
+      {/* Brochure Modal — programmes from this solution's list */}
+      <SolutionBrochureModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        programmes={programmes}
+      />
     </section>
   );
 }

@@ -116,16 +116,12 @@ export default function SolutionProgrammes({ programmes = [] }) {
                   />
                 </div>
 
-                {/* Label — fixed height so card never resizes */}
-                <div
-                  className={`h-42 px-5 pt-5 flex flex-col justify-start transition-colors duration-300 ${
-                    isActive ? "bg-[#D52029]" : "bg-white"
-                  }`}
-                >
-                  <h3 className={`text-base sm:text-lg font-bold leading-snug mb-2 transition-colors duration-300 ${isActive ? "text-white" : "text-[#414143]"}`}>
+                {/* Label */}
+                <div className={`px-5 pt-4 pb-4 flex flex-col transition-colors duration-300 ${isActive ? "bg-[#D52029]" : "bg-white"}`}>
+                  <h3 className={`text-base sm:text-lg font-bold leading-snug transition-colors duration-300 ${isActive ? "text-white" : "text-[#414143]"}`}>
                     {prog.title}
                   </h3>
-                  <div className={`transition-all duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}>
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
                     <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
                       {prog.description || "GATD delivers world-class expertise in this area to help your organisation grow and succeed."}
                     </p>

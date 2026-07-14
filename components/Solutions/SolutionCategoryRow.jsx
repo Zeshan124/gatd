@@ -64,18 +64,8 @@ export default function SolutionCategoryRow({ title, items }) {
             </div>
 
             {/* Title label */}
-            <div
-              className={`px-5 py-4 flex-1 ${
-                idx === 0
-                  ? "bg-[#D52029]"
-                  : "bg-white border border-slate-100"
-              }`}
-            >
-              <h3
-                className={`text-base sm:text-lg font-bold leading-snug ${
-                  idx === 0 ? "text-white" : "text-[#414143]"
-                }`}
-              >
+            <div className="px-5 py-4 flex-1 bg-white border border-slate-100 group-hover:bg-[#D52029] transition-colors duration-300">
+              <h3 className="text-base sm:text-lg font-bold leading-snug text-[#414143] group-hover:text-white transition-colors duration-300">
                 {item.title}
               </h3>
             </div>
