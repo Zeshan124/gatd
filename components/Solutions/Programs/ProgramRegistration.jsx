@@ -37,10 +37,10 @@ const programOptions = [
   "Impactful Business and People Leadership",
   "Performance Development and Rewards Management",
   "Resourcing, Talent and Learning Management",
-  "HR Analytics and Digital Transformation",
-  "Employment Law and Compliance",
-  "Organisational Design and Change",
-  "Executive Compensation and Benefits Strategy",
+  "Impactive HR for Unitiated",
+  "Progressing Organization Development",
+  "Advancing Trainer Development (ToT)",
+  "Management: Best Practices for Best Results",
 ];
 
 export default function ProgramRegistration({
