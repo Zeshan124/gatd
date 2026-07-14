@@ -98,14 +98,14 @@ export default function GATDHero() {
 
         {/* ── Strategic Partners ── */}
         <div className="py-10 sm:py-12 border-t border-slate-100 mt-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-1">
             {/* Label */}
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#414143]">
               Our Strategic Partners
             </h2>
 
             {/* Partner Logos */}
-            <div className="flex flex-wrap items-center gap-6 sm:gap-10">
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8">
               {partners.map((partner) => (
                 <div key={partner.name} className="flex-shrink-0">
                   <Image
