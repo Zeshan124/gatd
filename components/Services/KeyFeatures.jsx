@@ -8,37 +8,37 @@ const features = [
   {
     id: 1,
     title: "Customized Training Program",
-    description: "We design bespoke training programmes tailored to each client's specific goals, industry challenges, and organisational culture — ensuring every programme delivers maximum relevance and lasting impact.",
+    description: "GATD understands that each organization and individual has unique training needs. We offer customized training programs tailored to specific industries, job roles, and skill levels. Our team of expert trainers designs engaging and interactive learning experiences that address the specific challenges faced by our clients.",
   },
   {
     id: 2,
     title: "Industry Relevant Curriculum",
-    description: "Our curriculum is continuously updated to reflect current market trends, emerging technologies, and evolving business needs — keeping participants ahead of industry change.",
+    description: "We stay updated with the latest industry trends and advancements to develop training programs that are relevant and in line with the current market demands. Our curriculum covers a wide range of topics, including leadership development, technical skills, communication, project management, customer service, and more.",
   },
   {
     id: 3,
     title: "Expert Trainers",
-    description: "All GATD programmes are facilitated by seasoned practitioners and subject-matter experts with deep industry experience, bringing real-world insight and credibility to every session.",
+    description: "GATD takes pride in its team of experienced and knowledgeable trainers who bring a wealth of expertise from various industries. Our trainers are not only subject matter experts but also skilled facilitators who create an engaging and interactive learning environment. They are dedicated to helping individuals develop practical skills and gain valuable insights.",
   },
   {
     id: 4,
     title: "Blended Learning Approach",
-    description: "GATD embraces a blended learning approach that combines the best of traditional classroom training with modern digital resources. We utilize a variety of learning methods, including instructor-led sessions, hands-on exercises, case studies, group discussions, e-learning modules, and virtual classrooms. This approach ensures a well-rounded learning experience that caters to different learning styles.",
+    description: "GATD embraces a blended learning approach that combines the best of traditional classroom training with modern digital resources. We utilize a variety of learning methods, including instructor-led sessions, hands-on exercises, case studies, group discussions, e-learning modules, and virtual classrooms. This approach ensures a well-rounded learning experience that caters to different learning styles",
   },
   {
     id: 5,
     title: "Continuous Learning Approach",
-    description: "We support learners beyond the classroom with ongoing resources, follow-up coaching, and reinforcement tools that embed knowledge and sustain behaviour change over the long term.",
+    description: "GATD believes that learning is a lifelong journey. To support our participants beyond the training programs, we provide ongoing learning resources, including access to online libraries, webinars, and discussion forums. This commitment to continuous learning ensures that individuals can apply their acquired skills effectively and stay ahead in their respective fields.",
   },
   {
     id: 6,
     title: "Future Management Consulting",
-    description: "Our forward-looking consulting services help organisations build the management capabilities, structures, and cultures needed to navigate complexity and lead confidently into the future.",
+    description: "Our competitive advantage is further strengthened by our track record of delivering tangible results. We have helped numerous individuals and organizations achieve their goals, improve performance, and drive success through our training programs. Our satisfied clients and their success stories serve as a testament to the effectiveness and impact of our training solutions.",
   },
   {
     id: 7,
     title: "Flexible Delivery Options",
-    description: "GATD programmes are available in-person, virtual, and hybrid formats — designed to fit around your team's schedule, location, and operational requirements without compromising quality.",
+    description: "Recognizing the importance of flexibility, GATD offers multiple delivery options for training programs. We provide on-site training at the client’s location, enabling organizations to train their employees conveniently. Additionally, we offer virtual training solutions, allowing participants to access courses remotely, making it accessible to a wider audience regardless of geographical location.",
   },
 ];
 
