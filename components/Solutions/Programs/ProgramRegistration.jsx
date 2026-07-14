@@ -33,14 +33,14 @@ const countries = [
 ];
 
 const programOptions = [
-  "Strategic HR Business Partnership & Beyond",
-  "Impactful Business and People Leadership",
-  "Performance Development and Rewards Management",
-  "Resourcing, Talent and Learning Management",
-  "HR Analytics and Digital Transformation",
-  "Employment Law and Compliance",
-  "Organisational Design and Change",
-  "Executive Compensation and Benefits Strategy",
+  { id: 1, label: "Strategic HR Business Partnership & Beyond", price: 3850 },
+  { id: 2, label: "Impactful Business and People Leadership", price: 3850 },
+  { id: 3, label: "Performance Development and Rewards Management", price: 2800 },
+  { id: 4, label: "Resourcing, Talent and Learning Management", price: 2800 },
+  { id: 5, label: "HR Analytics and Digital Transformation", price: 2800 },
+  { id: 6, label: "Employment Law and Compliance", price: 2800 },
+  { id: 7, label: "Organisational Design and Change", price: 3850 },
+  { id: 8, label: "Executive Compensation and Benefits Strategy", price: 2800 },
 ];
 
 export default function ProgramRegistration({
@@ -51,22 +51,31 @@ export default function ProgramRegistration({
   const [form, setForm] = useState({
     firstName: "", email: "", phone: "",
     country: "", designation: "", organization: "",
-    programme: "", totalAmount: "", source: "",
+    source: "",
   });
+  const [selectedPrograms, setSelectedPrograms] = useState([]);
   const [dialCode, setDialCode] = useState("AE");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [progDropOpen, setProgDropOpen] = useState(false);
   const [search, setSearch] = useState("");
 
   const selectedCountry = countries.find((c) => c.code === dialCode) || countries[0];
-
   const filtered = countries.filter(
-    (c) =>
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.dial.includes(search)
+    (c) => c.name.toLowerCase().includes(search.toLowerCase()) || c.dial.includes(search)
   );
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const toggleProgram = (prog) => {
+    setSelectedPrograms((prev) =>
+      prev.find((p) => p.id === prog.id)
+        ? prev.filter((p) => p.id !== prog.id)
+        : [...prev, prog]
+    );
+  };
+
+  const totalAmount = selectedPrograms.reduce((sum, p) => sum + p.price, 0);
 
   const handleSubmit = (e) => { e.preventDefault(); };
 
@@ -76,7 +85,6 @@ export default function ProgramRegistration({
   return (
     <section className="relative py-14 sm:py-18 md:py-24 overflow-hidden">
 
-      {/* Background image */}
       <Image src={backgroundImage} alt="" fill className="object-cover object-center" />
 
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
@@ -91,7 +99,6 @@ export default function ProgramRegistration({
           {heading}
         </h2>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
 
           {/* First Name */}
@@ -100,22 +107,16 @@ export default function ProgramRegistration({
 
           {/* Email */}
           <input name="email" type="email" value={form.email} onChange={handleChange}
-            placeholder="Email Address"
-            className={inputClass} />
+            placeholder="Email Address" className={inputClass} />
 
           {/* Phone with country selector */}
           <div className="relative flex items-center bg-white border border-slate-300 focus-within:border-[#D52029] rounded-md transition-colors duration-200">
-            {/* Country flag button */}
             <button
               type="button"
               onClick={() => { setDropdownOpen((p) => !p); setSearch(""); }}
               className="flex items-center gap-1.5 px-4 shrink-0 py-4"
             >
-              <img
-                src={`https://flagcdn.com/w40/${selectedCountry.code.toLowerCase()}.png`}
-                alt={selectedCountry.name}
-                className="w-6 h-4 object-cover rounded-sm"
-              />
+              <img src={`https://flagcdn.com/w40/${selectedCountry.code.toLowerCase()}.png`} alt={selectedCountry.name} className="w-6 h-4 object-cover rounded-sm" />
               <span className="text-xs text-slate-500">{selectedCountry.dial}</span>
               <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -125,42 +126,24 @@ export default function ProgramRegistration({
             <input name="phone" type="tel" value={form.phone} onChange={handleChange}
               placeholder="Phone Number"
               className="flex-1 bg-transparent outline-none py-4 pr-5 text-sm text-[#414143] placeholder-[#414143]" />
-
-            {/* Dropdown */}
             {dropdownOpen && (
               <div className="absolute top-full left-0 z-50 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden">
-                {/* Search */}
                 <div className="px-3 py-2 border-b border-slate-100">
-                  <input
-                    autoFocus
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search country..."
-                    className="w-full text-sm outline-none py-1 text-[#414143] placeholder-slate-400"
-                  />
+                  <input autoFocus value={search} onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search country..." className="w-full text-sm outline-none py-1 text-[#414143] placeholder-slate-400" />
                 </div>
-                {/* List */}
                 <ul className="max-h-52 overflow-y-auto">
                   {filtered.map((c) => (
                     <li key={c.code}>
-                      <button
-                        type="button"
-                        onClick={() => { setDialCode(c.code); setDropdownOpen(false); setSearch(""); }}
-                        className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-red-50 hover:text-[#D52029] transition-colors text-left"
-                      >
-                        <img
-                          src={`https://flagcdn.com/w40/${c.code.toLowerCase()}.png`}
-                          alt={c.name}
-                          className="w-6 h-4 object-cover rounded-sm shrink-0"
-                        />
+                      <button type="button" onClick={() => { setDialCode(c.code); setDropdownOpen(false); setSearch(""); }}
+                        className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-red-50 hover:text-[#D52029] transition-colors text-left">
+                        <img src={`https://flagcdn.com/w40/${c.code.toLowerCase()}.png`} alt={c.name} className="w-6 h-4 object-cover rounded-sm shrink-0" />
                         <span className="flex-1">{c.name}</span>
                         <span className="text-slate-400 text-xs">{c.dial}</span>
                       </button>
                     </li>
                   ))}
-                  {filtered.length === 0 && (
-                    <li className="px-4 py-3 text-sm text-slate-400">No results</li>
-                  )}
+                  {filtered.length === 0 && <li className="px-4 py-3 text-sm text-slate-400">No results</li>}
                 </ul>
               </div>
             )}
@@ -178,24 +161,71 @@ export default function ProgramRegistration({
           <input name="organization" value={form.organization} onChange={handleChange}
             placeholder="Organization" className={inputClass} />
 
-          {/* Programmes */}
-          <div className="relative">
-            <select name="programme" value={form.programme} onChange={handleChange}
-              className={`${inputClass} appearance-none pr-10 cursor-pointer`}>
-              <option value="" disabled>Programmes</option>
-              {programOptions.map((opt) => (
-                <option key={opt} value={opt}>{opt}</option>
-              ))}
-            </select>
-            <svg className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none"
-              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </div>
+          {/* Programmes — custom multi-select dropdown — full width */}
+          <div className="sm:col-span-2 relative">
+            {/* Trigger */}
+            <button
+              type="button"
+              onClick={() => setProgDropOpen((p) => !p)}
+              className="w-full flex items-center justify-between bg-white border border-slate-300 focus:border-[#D52029] rounded-md px-5 py-4 text-sm text-[#414143] transition-colors duration-200"
+            >
+              <span className={selectedPrograms.length ? "text-[#414143]" : "text-[#414143]/60"}>
+                {selectedPrograms.length === 0
+                  ? "Select Programme(s)"
+                  : selectedPrograms.length === 1
+                  ? selectedPrograms[0].label
+                  : `${selectedPrograms.length} programmes selected`}
+              </span>
+              <svg className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${progDropOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
 
-          {/* Total Amount */}
-          <input name="totalAmount" value={form.totalAmount} onChange={handleChange}
-            placeholder="Total Amount" className={inputClass} />
+            {/* Dropdown list */}
+            {progDropOpen && (
+              <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl overflow-y-auto max-h-72">
+                {programOptions.map((prog) => {
+                  const checked = !!selectedPrograms.find((p) => p.id === prog.id);
+                  return (
+                    <button
+                      key={prog.id}
+                      type="button"
+                      onClick={() => toggleProgram(prog)}
+                      className={`w-full flex items-center justify-between gap-3 px-5 py-3.5 text-sm text-left transition-colors duration-150 ${checked ? "bg-[#D52029]/5" : "hover:bg-slate-50"}`}
+                    >
+                      <span className="flex items-center gap-3 min-w-0">
+                        <span className={`w-4 h-4 rounded shrink-0 border-2 flex items-center justify-center transition-colors ${checked ? "bg-[#D52029] border-[#D52029]" : "border-slate-300"}`}>
+                          {checked && (
+                            <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth={2.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l3 3 5-5" />
+                            </svg>
+                          )}
+                        </span>
+                        <span className={`leading-snug ${checked ? "text-[#D52029] font-semibold" : "text-[#414143]"}`}>
+                          {prog.label}
+                        </span>
+                      </span>
+                      <span className={`text-xs font-bold shrink-0 ${checked ? "text-[#D52029]" : "text-slate-500"}`}>
+                        SGD {prog.price.toLocaleString()}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Price summary */}
+            {selectedPrograms.length > 0 && (
+              <div className="mt-3 flex items-center justify-between px-4 py-3 bg-[#D52029] rounded-lg">
+                <span className="text-sm font-bold text-white">
+                  {selectedPrograms.length === 1 ? selectedPrograms[0].label : `Total (${selectedPrograms.length} programmes)`}
+                </span>
+                <span className="text-base font-black text-white">
+                  SGD {totalAmount.toLocaleString()}
+                </span>
+              </div>
+            )}
+          </div>
 
           {/* Source — full width */}
           <input name="source" value={form.source} onChange={handleChange}
@@ -213,10 +243,8 @@ export default function ProgramRegistration({
         </form>
       </div>
 
-      {/* Close dropdown on outside click */}
-      {dropdownOpen && (
-        <div className="fixed inset-0 z-40" onClick={() => setDropdownOpen(false)} />
-      )}
+      {dropdownOpen && <div className="fixed inset-0 z-40" onClick={() => setDropdownOpen(false)} />}
+      {progDropOpen && <div className="fixed inset-0 z-40" onClick={() => setProgDropOpen(false)} />}
     </section>
   );
 }

@@ -53,7 +53,10 @@ export default function SolutionPage({ params }) {
         <SolutionHero solution={solution} />
         <CommitmentToExcellence mapImage={solution.mapImage} />
         {solution.programmes?.length > 0 && (
-          <SolutionProgrammes programmes={solution.programmes} />
+          <SolutionProgrammes
+            programmes={solution.programmes}
+            heading={solution.programmesHeading}
+          />
         )}
         {solution.gains && (
           <WhatYoullGain heading={solution.gainsHeading} gains={solution.gains} />

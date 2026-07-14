@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Filter, X } from "lucide-react";
 
-export default function SolutionProgrammes({ programmes = [] }) {
+export default function SolutionProgrammes({ programmes = [], heading }) {
   const scrollRef = useRef(null);
   const [hoveredId, setHoveredId] = useState(null);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -69,7 +69,7 @@ export default function SolutionProgrammes({ programmes = [] }) {
         {/* Header row */}
         <div className="flex items-end justify-between gap-6 mb-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] leading-tight">
-            Our Programmes
+            {heading || "Our Programmes"}
           </h2>
           <div className="flex items-center gap-3 flex-shrink-0">
             <button

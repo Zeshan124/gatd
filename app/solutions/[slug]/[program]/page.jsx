@@ -74,9 +74,7 @@ export default function ProgramPage({ params }) {
             heading={program.focusHeading}
             focusAreas={program.focusAreas}
           />
- {program.gains && (
           <WhatYouWillGain heading={program.gainsHeading} gains={program.gains} />
-           )}
                   
                   <ProgramFacilitator facilitator={program.facilitator} />
                   <RecognizedSpeaker certification={program.certification} />
