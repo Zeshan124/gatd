@@ -12,7 +12,7 @@ const solutions = [
     title: "Executive Educational Program",
     description:
       "Global ATD's Executive Education Programs are crafted to equip senior leaders and high-potential executives with the strategic insight and leadership capabilities needed to navigate today's fast-changing business environment. Grounded in real-world application and future-forward thinking, our programs support leaders in translating learning into measurable organizational impact.",
-    image: "/images/solutions/executive-educational/1.jpg",
+    image: "/images/solutions/executive-educational/executive-education-program.jpg",
     href: "/solutions/executive-educational",
   },
   {
@@ -21,7 +21,7 @@ const solutions = [
     badge: "Solutions",
     title: "Consulting Service",
     description:
-      "GATD's consulting services help organisations identify performance gaps and implement targeted strategies for sustainable growth. Our expert consultants partner with you to co-create solutions that align with your unique business goals and culture.",
+      "At Global ATD, we partner with ministries, regional and international organizations, and non-profit institutions to drive transformative impact through customized consulting solutions. Our deep expertise spans across public, private, and social sectors, helping clients align strategy with execution and build sustainable capabilities for the future. We specialize in developing and implementing talent and workforce strategies that future-proof organizations and enhance institutional effectiveness.",
     image: "/images/solutions/consulting-services/2.jpg",
     href: "/solutions/consulting-service",
   },
@@ -31,7 +31,7 @@ const solutions = [
     badge: "Solutions",
     title: "Customized Programs",
     description:
-      "We design bespoke learning journeys tailored to your organisation's specific challenges, industry, and vision. Every program is built around real business outcomes, ensuring maximum relevance and impact for your teams.",
+      "Global ATD offers highly tailored executive learning experiences designed to address today’s most complex leadership challenges. Our customized programs equip senior leaders, boards, and executive teams with strategic insights and practical tools to navigate uncertainty, drive transformation, and sustain long-term impact. Each program is co-created with clients to align with their unique context and objectives—whether leading through crisis, optimizing operations, or preparing boards for strategic governance.",
     image: "/images/solutions/Customized-Programs/3.jpg",
     href: "/solutions/customized-programs",
   },
@@ -41,7 +41,7 @@ const solutions = [
     badge: "Solutions",
     title: "Certified Programs",
     description:
-      "Our internationally recognised certification programs equip professionals with credentials that validate their expertise and open doors to new career opportunities across the globe.",
+      "Global ATD’s Certified Programs empower professionals to advance their expertise and earn globally recognized credentials in critical, high-demand fields. Each certification integrates practical knowledge, global best practices, and real-world application—driving immediate workplace results and sustainable career growth. Led by certified facilitators and industry experts, these programs balance theory with hands-on learning to build confidence and capability.",
     image: "/images/solutions/Certified-Programs/4.webp",
     href: "/solutions/certified-programs",
   },
@@ -51,7 +51,7 @@ const solutions = [
     badge: "Solutions",
     title: "Executive Retreats",
     description:
-      "Immersive retreat experiences designed to inspire strategic thinking, strengthen leadership cohesion, and renew executive focus — held in carefully curated environments that foster deep reflection and bold decision-making.",
+      "At Global ATD, our Executive Retreats are thoughtfully designed experiences that combine strategic reflection with inspiration, collaboration, and renewal. Tailored for senior leaders and changemakers, each retreat serves as a catalyst for innovation, alignment, and growth—offering a unique space to pause, reflect, and reimagine the future. More than just a gathering, these retreats are transformative leadership journeys where vision meets experience.",
     image: "/images/solutions/Executive-Retreats/5.webp",
     href: "/solutions/executive-retreats",
   },
@@ -61,7 +61,7 @@ const solutions = [
     badge: "Solutions",
     title: "Incubators — Regional and International",
     description:
-      "GATD's incubator programs nurture emerging business ideas and entrepreneurial talent, connecting regional innovators with international networks, mentorship, and the resources needed to scale.",
+      "The GATD Incubator cultivates innovation, leadership, and entrepreneurial growth across regions and industries. It offers mentorship, training, and strategic guidance to emerging leaders, startups, and organizations aiming for scalable, sustainable success.",
     image: "/images/solutions/Incubators/6.jpg",
     href: "/solutions/incubators",
   },
@@ -71,7 +71,7 @@ const solutions = [
     badge: "Solutions",
     title: "Event Management",
     description:
-      "From high-impact conferences to intimate leadership summits, GATD delivers end-to-end event management solutions that create memorable, purpose-driven experiences aligned with your organisational objectives.",
+      "At Global ATD, we transform ideas into impactful experiences through strategically designed and flawlessly executed events. Whether it’s engaging key stakeholders, celebrating milestones, or unveiling new initiatives, our expert event management team ensures every element aligns with your objectives and delivers measurable results.",
    image: "/images/solutions/Event-Management/7.jpg",
     href: "/solutions/event-management",
   },
