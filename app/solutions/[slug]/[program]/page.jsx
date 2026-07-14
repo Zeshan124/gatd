@@ -58,7 +58,7 @@ export default function ProgramPage({ params }) {
         </div>
 
         {/* Components will be added here as you share them */}
-          <ProgramsHero program={program} />
+          <ProgramsHero program={{ ...program, slug: params.program }} />
           <ProgramOverview />
           
           <StrategicPillars
@@ -78,8 +78,8 @@ export default function ProgramPage({ params }) {
           <WhatYouWillGain heading={program.gainsHeading} gains={program.gains} />
            )}
                   
-                  <ProgramFacilitator />
-                  <RecognizedSpeaker />
+                  <ProgramFacilitator facilitator={program.facilitator} />
+                  <RecognizedSpeaker certification={program.certification} />
                   <AccreditedBy />
                   <ProgramPricing
                     heading={program.pricingHeading}

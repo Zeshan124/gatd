@@ -2,32 +2,44 @@
 
 import Image from "next/image";
 
-export default function ProgramFacilitator() {
-  const expertise = [
+const defaultFacilitator = {
+  name: "Prof. Dr. Joel Farnworth",
+  role: "Dean of Business and Management Studies, EIU-Paris",
+  image: "/images/solutions/strategic-hr/Dr_Joel.png",
+  bg: "/images/solutions/strategic-hr/program_facilitator_BG.png",
+  expertise: [
     "Human Resource Management",
-    "Leadership Developement",
+    "Leadership Development",
     "Managerial Skills Development",
-    "Corporate Strategy Creation and",
-    "Implementation",
+    "Corporate Strategy Creation and Implementation",
     "Performance Management",
     "Strategic HRM",
-  ];
-
-  const biography = [
+  ],
+  biography: [
     "Coach and Consultant",
     "Strategic HR Management",
-    "Impactive Leadership",
-    "Creating and Implementing",
-    "Corporate Strategy",
+    "Impactful Leadership",
+    "Creating and Implementing Corporate Strategy",
     "Senior Management Advisor",
-  ];
+  ],
+};
+
+export default function ProgramFacilitator({ facilitator }) {
+  const {
+    name,
+    role,
+    image,
+    bg,
+    expertise,
+    biography,
+  } = facilitator || defaultFacilitator;
 
   return (
     <section className="relative overflow-hidden py-0">
 
       {/* Background image */}
       <Image
-        src="/images/solutions/strategic-hr/program_facilitator_BG.png"
+        src={bg}
         alt=""
         fill
         className="object-cover object-center"
@@ -44,8 +56,8 @@ export default function ProgramFacilitator() {
             {/* Professor Image — cut out, no background */}
             <div className="relative flex items-center justify-center">
               <Image
-                src="/images/solutions/strategic-hr/Dr_Joel.png"
-                alt="Prof. Dr. Joel Farnworth"
+                src={image}
+                alt={name}
                 width={600}
                 height={560}
                 className="object-contain w-auto max-h-[460px] sm:max-h-[540px]"

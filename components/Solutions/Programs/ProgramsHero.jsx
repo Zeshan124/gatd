@@ -1,18 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import BrochureModal from "./BrochureModal";
 
 export default function ProgramsHero({ program }) {
   const {
     eyebrow = "Our Programs",
     title,
     description,
-    brochure = "/brochure.pdf",
     banner,
     bannerAlt,
-    subheading,
-    subtext,
+    // used for modal
+    parentSlug,
+    slug: programSlug,
   } = program;
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="bg-white py-12 sm:py-16 md:py-12 border-b border-slate-200">
@@ -36,9 +40,9 @@ export default function ProgramsHero({ program }) {
               {description}
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <a
-                href={brochure}
-                download
+              {/* Download button — opens modal */}
+              <button
+                onClick={() => setModalOpen(true)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shrink-0">
@@ -47,12 +51,12 @@ export default function ProgramsHero({ program }) {
                   </svg>
                 </span>
                 Download Programme Brochure
-              </a>
+              </button>
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#414143] text-[#414143] hover:bg-[#414143] hover:text-white text-sm font-bold rounded-lg transition-all duration-200"
               >
-                Schedule a Consultations
+                Schedule a Consultation
               </a>
             </div>
           </div>
@@ -71,23 +75,15 @@ export default function ProgramsHero({ program }) {
           </div>
         )}
 
-        {/* Bottom Centered Text Block */}
-        {/* {(subheading || subtext) && (
-          <div className="text-center mx-auto">
-            {subheading && (
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] mb-5 leading-tight">
-                {subheading}
-              </h2>
-            )}
-            {subtext && (
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                {subtext}
-              </p>
-            )}
-          </div>
-        )} */}
-
       </div>
+
+      {/* Brochure Modal */}
+      <BrochureModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        currentSlug={programSlug}
+        parentSlug={parentSlug}
+      />
     </section>
   );
 }
