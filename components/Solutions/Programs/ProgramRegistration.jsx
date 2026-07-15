@@ -37,14 +37,10 @@ const programOptions = [
   { id: 2, label: "Impactful Business and People Leadership", price: 3850 },
   { id: 3, label: "Performance Development and Rewards Management", price: 2800 },
   { id: 4, label: "Resourcing, Talent and Learning Management", price: 2800 },
-  { id: 5, label: "HR Analytics and Digital Transformation", price: 2800 },
-  { id: 6, label: "Employment Law and Compliance", price: 2800 },
-  { id: 7, label: "Organisational Design and Change", price: 3850 },
-  { id: 8, label: "Executive Compensation and Benefits Strategy", price: 2800 },
-  { id: 9, label: "Impactive HR for the Uninitiated", price: 2500 },
+  { id: 9, label: "Impactive HR for the Uninitiated", price: 2800 },
   { id: 10, label: "Progressing Organization Development", price: 2800 },
-  { id: 11, label: "Advancing Trainer Development (ToT)", price: 2600 },
-  { id: 12, label: "Management: Best Practices for Best Results", price: 2700 },
+  { id: 11, label: "Advancing Trainer Development (ToT)", price: 2800 },
+  { id: 12, label: "Management: Best Practices for Best Results", price: 3850 },
 ];
 
 export default function ProgramRegistration({
