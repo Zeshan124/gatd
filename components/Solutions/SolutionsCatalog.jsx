@@ -93,7 +93,7 @@ const catalog = [
     items: [
       { id: 1, title: "Global Marketing Forum", image: "/images/solutions/Global-Conferences/conference-1.jpg", href: "/solutions/global-marketing-forum" },
       { id: 2, title: "Energy Governance & Leadership Summit", image: "/images/solutions/Global-Conferences/conference-2.jpg", href: "/solutions/energy-governance" },
-      { id: 3, title: "The Zero Summit Strategic Dialogues for a Net Zero World", image: "/images/solutions/Global-Conferences/conference-3.jpg", href: "/solutions/zero-summit" },
+      { id: 3, title: "The Zero Summit - Strategic Dialogues for a Net Zero World", image: "/images/solutions/Global-Conferences/conference-3.jpg", href: "/solutions/zero-summit" },
       { id: 4, title: "PetroForesight 2030: The Leadership Blueprint for Energy Transition", image: "/images/solutions/Global-Conferences/conference-4.jpg", href: "/solutions/petroforesight" },
     ],
   },
@@ -106,7 +106,7 @@ const catalog = [
       { id: 3, title: "Global Marketing & Sales Leadership", image: "/images/solutions/Industry-Specific/industry-3.jpg", href: "/solutions/marketing-sales" },
       { id: 4, title: "Strategic Leadership Across Healthcare Ecosystems", image: "/images/solutions/Industry-Specific/industry-4.jpg", href: "/solutions/healthcare-leadership" },
       { id: 5, title: "High Performance Governments", image: "/images/solutions/Industry-Specific/industry-5.jpg", href: "/solutions/high-performance-governments" },
-      { id: 6, title: "Family Business Entrepreneurship", image: "/images/solutions/Industry-Specific/industry-6.jpg", href: "/solutions/family-business-leadership" },
+      { id: 6, title: "Family Business & Entrepreneurship", image: "/images/solutions/Industry-Specific/industry-6.jpg", href: "/solutions/family-business-leadership" },
       { id: 7, title: "Real Estate – Smart Investing", image: "/images/solutions/Industry-Specific/industry-7.jpg", href: "/solutions/real-estate-smart-investing" }
     ],
   },
