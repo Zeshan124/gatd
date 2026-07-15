@@ -12,14 +12,19 @@ const countries = [
   "Turkey", "China", "Japan",
 ];
 
-export default function BrochureModal({ open, onClose, currentSlug, parentSlug }) {
+export default function BrochureModal({ open, onClose, currentSlug, parentSlug, brochure = "/images/home/GATD-Company-Profile.pdf" }) {
   const [form, setForm] = useState({ name: "", email: "", country: "", organization: "", programme: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  // Build sibling programme list (exclude current)
-  const siblings = Object.entries(programsData)
-    .filter(([slug, p]) => p.parentSlug === parentSlug && slug !== currentSlug)
-    .map(([slug, p]) => ({ slug, title: p.title }));
+  // Current programme + all siblings under the same parent
+  const currentProgram = programsData[currentSlug];
+  const allPrograms = Object.entries(programsData)
+    .filter(([, p]) => p.parentSlug === parentSlug)
+    .map(([slug, p]) => ({ slug, title: p.title, isCurrent: slug === currentSlug }));
+
+  // Pre-select the current programme
+  const initialProgramme = currentSlug || "";
+  const [selectedProgramme, setSelectedProgramme] = useState(initialProgramme);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -81,12 +86,20 @@ export default function BrochureModal({ open, onClose, currentSlug, parentSlug }
               </div>
               <h4 className="text-xl font-bold text-[#414143]">Thank You!</h4>
               <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
-                Your brochure request has been received. We'll send it to your email shortly.
+                Your details have been received. Click below to open your brochure.
               </p>
-              <button
-                onClick={onClose}
-                className="mt-2 px-6 py-2.5 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors duration-200"
+              <a
+                href={brochure}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors duration-200 shadow-md"
               >
+                <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-4-4m4 4l4-4" />
+                </svg>
+                Open Brochure
+              </a>
+              <button onClick={onClose} className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
                 Close
               </button>
             </div>
@@ -120,16 +133,20 @@ export default function BrochureModal({ open, onClose, currentSlug, parentSlug }
                 placeholder="Organisation"
                 className={inputClass}
               />
-              {/* Other Programme dropdown — only siblings */}
-              {siblings.length > 0 && (
+              {/* Programme dropdown — current pre-selected, all siblings available */}
+              {allPrograms.length > 0 && (
                 <div className="relative">
                   <select
-                    name="programme" value={form.programme} onChange={handleChange}
+                    name="programme"
+                    value={selectedProgramme}
+                    onChange={(e) => setSelectedProgramme(e.target.value)}
                     className={`${inputClass} appearance-none pr-9 cursor-pointer`}
                   >
-                    <option value="">Other Programme (Optional)</option>
-                    {siblings.map((s) => (
-                      <option key={s.slug} value={s.slug}>{s.title}</option>
+                    <option value="">Select Programme</option>
+                    {allPrograms.map((p) => (
+                      <option key={p.slug} value={p.slug}>
+                        {p.title}{p.isCurrent ? " (Current)" : ""}
+                      </option>
                     ))}
                   </select>
                   <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

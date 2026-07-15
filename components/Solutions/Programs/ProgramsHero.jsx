@@ -83,6 +83,7 @@ export default function ProgramsHero({ program }) {
         onClose={() => setModalOpen(false)}
         currentSlug={programSlug}
         parentSlug={parentSlug}
+        brochure={program.brochure}
       />
     </section>
   );

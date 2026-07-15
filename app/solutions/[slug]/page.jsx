@@ -41,10 +41,6 @@ export default function SolutionPage({ params }) {
                 <span>/</span>
                 <Link href="/solutions" className="hover:text-[#D52029] transition-colors">Solutions</Link>
                 <span>/</span>
-                <Link href={`/solutions/${solution.parentSlug}`} className="hover:text-[#D52029] transition-colors truncate max-w-[140px] sm:max-w-xs">
-                  {solution.parentTitle}
-                </Link>
-                <span>/</span>
                 <span className="text-[#414143] font-medium truncate max-w-[120px] sm:max-w-[200px]">{solution.title}</span>
               </nav>
             </div>

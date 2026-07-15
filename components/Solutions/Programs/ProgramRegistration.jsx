@@ -83,9 +83,12 @@ export default function ProgramRegistration({
     "w-full bg-white border border-slate-300 focus:border-[#D52029] outline-none rounded-md px-5 py-4 text-sm text-[#414143] placeholder-[#414143] transition-colors duration-200";
 
   return (
-    <section className="relative py-14 sm:py-18 md:py-24 overflow-hidden">
+    <section className="relative py-14 sm:py-18 md:py-24">
 
-      <Image src={backgroundImage} alt="" fill className="object-cover object-center" />
+      {/* Background image — overflow-hidden scoped here so dropdowns aren't clipped */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Image src={backgroundImage} alt="" fill className="object-cover object-center" />
+      </div>
 
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
@@ -183,7 +186,7 @@ export default function ProgramRegistration({
 
             {/* Dropdown list */}
             {progDropOpen && (
-              <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl overflow-y-auto max-h-72">
+              <div className="absolute top-full left-0 right-0 z-100 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl overflow-y-auto max-h-72">
                 {programOptions.map((prog) => {
                   const checked = !!selectedPrograms.find((p) => p.id === prog.id);
                   return (
