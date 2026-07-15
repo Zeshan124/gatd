@@ -59,7 +59,12 @@ export default function ProgramPage({ params }) {
 
         {/* Components will be added here as you share them */}
           <ProgramsHero program={{ ...program, slug: params.program }} />
-          <ProgramOverview />
+          {/* <ProgramOverview /> */}
+          <ProgramOverview
+            title={program.overview.title}
+            description={program.overview.description}
+            image={program.overview.image}
+          />
           
           <StrategicPillars
             heading={program.pillarHeading}

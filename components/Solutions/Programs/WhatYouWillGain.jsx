@@ -35,6 +35,7 @@ const defaultGains = [
   },
 ];
 
+
 export default function WhatYouWillGain({ heading, gains }) {
   const items = gains || defaultGains;
 

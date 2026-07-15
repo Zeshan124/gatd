@@ -3,7 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProgramOverview() {
+export default function ProgramOverview({
+  title,
+  description,
+  image,
+}) {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
@@ -17,15 +21,13 @@ export default function ProgramOverview() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#414143] mb-6 leading-tight">
-              Strategic HR
-Business Partner
-Certification
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#414143] mb-6 leading-tight whitespace-pre-line">
+              {title}
             </h2>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-8">
-              This program is a strategic initiative designed to equip you with the financial acumen, consulting frameworks, and organisational models needed to sit at the table with the CEO and CFO as an equal, reinforcing your vital role in leadership discussions.
+              {description}
             </p>
 
             {/* CTA */}
@@ -40,7 +42,7 @@ Certification
           {/* Image — second in DOM, so it appears below content on mobile */}
           <div className="relative w-full rounded-2xl overflow-hidden shadow-lg aspect-4/3 order-2 lg:order-0">
             <Image
-              src="/images/solutions/Programs/program-overview.jpg"
+              src={image}
               alt="Programme Overview"
               fill
               className="object-cover"
