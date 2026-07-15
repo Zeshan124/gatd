@@ -69,11 +69,11 @@ const catalog = [
     id: "incubators",
     title: "Incubators - Regional & International",
     items: [
-      { id: 1, title: "Global HealthTech", image: "/images/solutions/incubators/incubator-1.jpg", href: "/solutions/global-healthtech" },
-      { id: 2, title: "Net Zero Innovation lab", image: "/images/solutions/incubators/incubator-2.jpg", href: "/solutions/net-zero" },
-      { id: 3, title: "GovTech Catalyst Hub", image: "/images/solutions/incubators/incubator-3.jpg", href: "/solutions/govtech" },
-      { id: 4, title: "EdTech Skills", image: "/images/solutions/incubators/incubator-4.jpg", href: "/solutions/edtech" },
-      { id: 5, title: "Diaspora Innovation Network", image: "/images/solutions/incubators/incubator-5.jpg", href: "/solutions/diaspora-innovation-network" },
+      { id: 1, title: "Global HealthTech", image: "/images/solutions/Incubators/incubator-1.jpg", href: "/solutions/global-healthtech" },
+      { id: 2, title: "Net Zero Innovation lab", image: "/images/solutions/Incubators/incubator-2.jpg", href: "/solutions/net-zero" },
+      { id: 3, title: "GovTech Catalyst Hub", image: "/images/solutions/Incubators/incubator-3.jpg", href: "/solutions/govtech" },
+      { id: 4, title: "EdTech Skills", image: "/images/solutions/Incubators/incubator-4.jpg", href: "/solutions/edtech" },
+      { id: 5, title: "Diaspora Innovation Network", image: "/images/solutions/Incubators/incubator-5.jpg", href: "/solutions/diaspora-innovation-network" },
     ],
   },
   {
