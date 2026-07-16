@@ -11,7 +11,7 @@ const countries = [
   "Turkey", "China", "Japan",
 ];
 
-export default function SolutionBrochureModal({ open, onClose, programmes = [] }, brochure,) {
+export default function SolutionBrochureModal({ open, onClose, programmes = [], brochure = "/images/home/GATD-Company-Profile.pdf" }) {
   const [form, setForm] = useState({ name: "", email: "", country: "", organization: "", programme: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -29,16 +29,7 @@ export default function SolutionBrochureModal({ open, onClose, programmes = [] }
   if (!open) return null;
 
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-  // const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
-  const handleSubmit = (e) => {
-  e.preventDefault();
-
-  if (brochure) {
-    window.open(brochure, "_blank");
-  }
-
-  setSubmitted(true);
-};
+  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
 
   const inputClass = "w-full bg-white border border-slate-300 focus:border-[#D52029] outline-none rounded-md px-4 py-3 text-sm text-[#414143] placeholder-slate-400 transition-colors duration-200";
 
@@ -72,9 +63,20 @@ export default function SolutionBrochureModal({ open, onClose, programmes = [] }
               </div>
               <h4 className="text-xl font-bold text-[#414143]">Thank You!</h4>
               <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
-                Your brochure request has been received. We'll send it to your email shortly.
+                Your details have been received. Click below to open your brochure.
               </p>
-              <button onClick={onClose} className="mt-2 px-6 py-2.5 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors duration-200">
+              <a
+                href={brochure}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors duration-200 shadow-md"
+              >
+                <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-4-4m4 4l4-4" />
+                </svg>
+                Open Brochure
+              </a>
+              <button onClick={onClose} className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
                 Close
               </button>
             </div>
