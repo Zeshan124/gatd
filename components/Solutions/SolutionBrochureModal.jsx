@@ -11,7 +11,7 @@ const countries = [
   "Turkey", "China", "Japan",
 ];
 
-export default function SolutionBrochureModal({ open, onClose, programmes = [] }) {
+export default function SolutionBrochureModal({ open, onClose, programmes = [] }, brochure,) {
   const [form, setForm] = useState({ name: "", email: "", country: "", organization: "", programme: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -29,7 +29,16 @@ export default function SolutionBrochureModal({ open, onClose, programmes = [] }
   if (!open) return null;
 
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+  // const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+  const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (brochure) {
+    window.open(brochure, "_blank");
+  }
+
+  setSubmitted(true);
+};
 
   const inputClass = "w-full bg-white border border-slate-300 focus:border-[#D52029] outline-none rounded-md px-4 py-3 text-sm text-[#414143] placeholder-slate-400 transition-colors duration-200";
 

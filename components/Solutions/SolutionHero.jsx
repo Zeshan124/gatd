@@ -91,6 +91,7 @@ export default function SolutionHero({ solution }) {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         programmes={programmes}
+        brochure={solution.brochure}
       />
     </section>
   );
