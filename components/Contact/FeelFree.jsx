@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
+const WEB3FORMS_KEY = "de0102f3-eb5b-4326-a8f8-a3824626a0b8";
+
 const countries = [
   { code: "AE", name: "UAE", dial: "+971" },
   { code: "SA", name: "Saudi Arabia", dial: "+966" },
@@ -39,6 +41,7 @@ export default function FeelFree() {
   const [dialCode, setDialCode] = useState("AE");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   const selectedCountry = countries.find((c) => c.code === dialCode) || countries[0];
   const filtered = countries.filter(
@@ -48,7 +51,34 @@ export default function FeelFree() {
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => { e.preventDefault(); };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const formData = new FormData();
+    formData.append("access_key", WEB3FORMS_KEY);
+    formData.append("name", form.firstName);
+    formData.append("email", form.email);
+    formData.append("phone", `${selectedCountry.dial} ${form.phone}`);
+    formData.append("subject", form.subject || "Contact Form Submission");
+    formData.append("message", form.message);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setForm({ firstName: "", email: "", phone: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const inputClass =
     "w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm text-[#414143] placeholder-slate-400 focus:outline-none focus:border-[#D52029] transition-colors duration-200";
@@ -56,7 +86,6 @@ export default function FeelFree() {
   return (
     <section className="relative bg-[#F2F2F2] py-14 sm:py-18 md:py-24 overflow-hidden">
 
-      {/* Background world map */}
       <Image
         src="/images/solutions/strategic-hr/contact_map.jpg"
         alt=""
@@ -66,115 +95,113 @@ export default function FeelFree() {
 
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
 
-        {/* Badge */}
         <span className="inline-block px-4 py-2 text-sm font-semibold text-[#414143] bg-[#E8E8E8] rounded-lg mb-6 shadow-sm">
           Submit Now
         </span>
 
-        {/* Heading */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#414143] leading-tight mb-10">
           Get In Touch With Us
         </h2>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-
-          {/* Row 1 — First Name + Email */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              name="firstName" value={form.firstName} onChange={handleChange}
-              placeholder="First Name" className={inputClass}
-            />
-            <input
-              name="email" type="email" value={form.email} onChange={handleChange}
-              placeholder="Email Address"
-              className={`${inputClass} border-[#D52029]`}
-            />
-          </div>
-
-          {/* Row 2 — Phone + Subject */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Phone with country selector */}
-            <div className="relative flex items-center bg-white border border-slate-200 rounded-lg px-4 focus-within:border-[#D52029] transition-colors duration-200">
-              <button
-                type="button"
-                onClick={() => { setDropdownOpen((p) => !p); setSearch(""); }}
-                className="flex items-center gap-1.5 pr-3 shrink-0 py-3"
-              >
-                <img
-                  src={`https://flagcdn.com/w40/${selectedCountry.code.toLowerCase()}.png`}
-                  alt={selectedCountry.name}
-                  className="w-6 h-4 object-cover rounded-sm"
-                />
-                <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div className="w-px h-5 bg-slate-200 mr-3 shrink-0" />
-              <input
-                name="phone" type="tel" value={form.phone} onChange={handleChange}
-                placeholder="Phone Number"
-                className="flex-1 bg-transparent outline-none py-3 text-sm text-[#414143] placeholder-slate-400"
-              />
-
-              {/* Dropdown */}
-              {dropdownOpen && (
-                <div className="absolute top-full left-0 z-50 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden">
-                  <div className="px-3 py-2 border-b border-slate-100">
-                    <input
-                      autoFocus value={search} onChange={(e) => setSearch(e.target.value)}
-                      placeholder="Search country..."
-                      className="w-full text-sm outline-none py-1 text-[#414143] placeholder-slate-400"
-                    />
-                  </div>
-                  <ul className="max-h-52 overflow-y-auto">
-                    {filtered.map((c) => (
-                      <li key={c.code}>
-                        <button
-                          type="button"
-                          onClick={() => { setDialCode(c.code); setDropdownOpen(false); setSearch(""); }}
-                          className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-red-50 hover:text-[#D52029] transition-colors text-left"
-                        >
-                          <img src={`https://flagcdn.com/w40/${c.code.toLowerCase()}.png`} alt={c.name}
-                            className="w-6 h-4 object-cover rounded-sm shrink-0" />
-                          <span className="flex-1">{c.name}</span>
-                          <span className="text-slate-400 text-xs">{c.dial}</span>
-                        </button>
-                      </li>
-                    ))}
-                    {filtered.length === 0 && (
-                      <li className="px-4 py-3 text-sm text-slate-400">No results</li>
-                    )}
-                  </ul>
-                </div>
-              )}
+        {status === "success" ? (
+          <div className="flex flex-col items-center text-center py-16 gap-4">
+            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
+              <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
             </div>
-
-            <input
-              name="subject" value={form.subject} onChange={handleChange}
-              placeholder="Subject" className={inputClass}
-            />
-          </div>
-
-          {/* Message — full width */}
-          <textarea
-            name="message" value={form.message} onChange={handleChange}
-            placeholder="Write Your Message Here..."
-            rows={5}
-            className={`${inputClass} resize-none`}
-          />
-
-          {/* Submit */}
-          <div>
+            <h3 className="text-2xl font-bold text-[#414143]">Message Sent!</h3>
+            <p className="text-slate-500 max-w-sm">Thank you for reaching out. We'll get back to you as soon as possible.</p>
             <button
-              type="submit"
-              className="inline-flex items-center justify-center px-10 py-4 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              onClick={() => setStatus("idle")}
+              className="mt-2 px-6 py-3 bg-[#D52029] hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors duration-200"
             >
-              Submit Now
+              Send Another Message
             </button>
           </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
-        </form>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input name="firstName" value={form.firstName} onChange={handleChange}
+                placeholder="First Name" required className={inputClass} />
+              <input name="email" type="email" value={form.email} onChange={handleChange}
+                placeholder="Email Address" required className={`${inputClass} border-[#D52029]`} />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative flex items-center bg-white border border-slate-200 rounded-lg px-4 focus-within:border-[#D52029] transition-colors duration-200">
+                <button
+                  type="button"
+                  onClick={() => { setDropdownOpen((p) => !p); setSearch(""); }}
+                  className="flex items-center gap-1.5 pr-3 shrink-0 py-3"
+                >
+                  <img src={`https://flagcdn.com/w40/${selectedCountry.code.toLowerCase()}.png`}
+                    alt={selectedCountry.name} className="w-6 h-4 object-cover rounded-sm" />
+                  <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="w-px h-5 bg-slate-200 mr-3 shrink-0" />
+                <input name="phone" type="tel" value={form.phone} onChange={handleChange}
+                  placeholder="Phone Number"
+                  className="flex-1 bg-transparent outline-none py-3 text-sm text-[#414143] placeholder-slate-400" />
+
+                {dropdownOpen && (
+                  <div className="absolute top-full left-0 z-50 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden">
+                    <div className="px-3 py-2 border-b border-slate-100">
+                      <input autoFocus value={search} onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search country..."
+                        className="w-full text-sm outline-none py-1 text-[#414143] placeholder-slate-400" />
+                    </div>
+                    <ul className="max-h-52 overflow-y-auto">
+                      {filtered.map((c) => (
+                        <li key={c.code}>
+                          <button type="button"
+                            onClick={() => { setDialCode(c.code); setDropdownOpen(false); setSearch(""); }}
+                            className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-red-50 hover:text-[#D52029] transition-colors text-left">
+                            <img src={`https://flagcdn.com/w40/${c.code.toLowerCase()}.png`} alt={c.name}
+                              className="w-6 h-4 object-cover rounded-sm shrink-0" />
+                            <span className="flex-1">{c.name}</span>
+                            <span className="text-slate-400 text-xs">{c.dial}</span>
+                          </button>
+                        </li>
+                      ))}
+                      {filtered.length === 0 && <li className="px-4 py-3 text-sm text-slate-400">No results</li>}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <input name="subject" value={form.subject} onChange={handleChange}
+                placeholder="Subject" className={inputClass} />
+            </div>
+
+            <textarea name="message" value={form.message} onChange={handleChange}
+              placeholder="Write Your Message Here..." rows={5}
+              required className={`${inputClass} resize-none`} />
+
+            {status === "error" && (
+              <p className="text-sm text-red-600">Something went wrong. Please try again.</p>
+            )}
+
+            <div>
+              <button type="submit" disabled={status === "loading"}
+                className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-[#D52029] hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-bold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                {status === "loading" ? (
+                  <>
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                    </svg>
+                    Sending...
+                  </>
+                ) : "Submit Now"}
+              </button>
+            </div>
+
+          </form>
+        )}
       </div>
 
       {dropdownOpen && (
